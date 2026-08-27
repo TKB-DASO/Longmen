@@ -3,951 +3,1590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大專院校大學轉學考全方位指南 | 暑轉・寒轉・聯招機制與備考策略</title>
+    <title>大學轉學考考試科目總覽 | 全學院四大領域完整資料庫與交叉查詢系統</title>
     <style>
         :root {
-            --primary-dark: #1e3a8a;     /* 海軍深藍 */
-            --primary: #2563eb;          /* 湛藍主色 */
-            --primary-light: #3b82f6;    /* 明亮藍 */
-            --primary-hover: #1d4ed8;    /* 按鈕懸停藍 */
-            --bg-warm: #f0f9ff;          /* 輕盈淡藍背景 */
-            --bg-card: #ffffff;          /* 卡片純白背景 */
-            --text-dark: #0f172a;        /* 深藍灰字 */
-            --text-muted: #475569;      /* 次要灰字 */
-            --border-blue: #bfdbfe;     /* 淡藍邊框 */
-            --accent-blue: #dbeafe;     /* 標籤亮藍 */
-            --shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.08), 0 2px 4px -2px rgba(37, 99, 235, 0.05);
-            --shadow-lg: 0 10px 15px -3px rgba(37, 99, 235, 0.12), 0 4px 6px -4px rgba(37, 99, 235, 0.08);
+            --primary-blue: #0066b2;
+            --primary-dark: #004b85;
+            --bg-light: #f4f7fa;
+            --border-color: #c8d8e5;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --hover-blue: #e8f3fc;
+            --badge-red: #d9534f;
+            --accent-green: #28a745;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans TC", sans-serif;
         }
 
-        /* 全局防跑版保護 */
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            background-color: var(--bg-warm);
+        body {
+            background-color: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            line-height: 1.5;
+            padding: 1rem;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1.25rem;
-        }
-
-        /* 捲動淡入動畫 CSS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 頂部導覽列 */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.6rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-            background: #ffffff;
-            padding: 0.9rem 1.2rem;
-            border-radius: 20px;
-            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.06);
-            border: 2px solid var(--border-blue);
-        }
-
-        .nav-link {
-            padding: 0.65rem 1.2rem;
-            background: #f8fafc;
-            border: 1px solid var(--border-blue);
-            border-radius: 9999px;
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 4px solid var(--primary-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* 卡片樣式 */
-        .card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 1.75rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-blue);
-            margin-bottom: 2.5rem;
-        }
-
-        /* 1. 條件與暑寒轉網格 */
-        .conditions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cond-card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-blue);
-            border-top: 5px solid var(--primary);
-            box-shadow: var(--shadow);
-        }
-
-        .cond-card h3 {
-            font-size: 1.25rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .cond-card ul {
-            list-style: none;
-            padding-left: 0;
-            font-size: 0.92rem;
-        }
-
-        .cond-card ul li {
-            position: relative;
-            padding-left: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cond-card ul li::before {
-            content: "🔹";
-            position: absolute;
-            left: 0;
-            font-size: 0.8rem;
-        }
-
-        /* 2. 聯招機制卡片與步驟流程區塊 */
-        .joint-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .joint-card {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 1.35rem;
-            border: 1px solid var(--border-blue);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .joint-badge {
-            background: var(--primary);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 800;
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 0.6rem;
-            align-self: flex-start;
-        }
-
-        .joint-card h4 {
-            font-size: 1.15rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.4rem;
-        }
-
-        .mechanism-title {
-            font-size: 0.88rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-top: 0.8rem;
-            margin-bottom: 0.6rem;
-            border-top: 1px dashed var(--border-blue);
-            padding-top: 0.6rem;
-        }
-
-        .flow-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.15rem;
-            width: 100%;
-        }
-
-        .flow-step {
-            width: 100%;
-            background: #ffffff;
-            border: 1px solid var(--border-blue);
+            background: white;
             border-radius: 8px;
-            padding: 0.55rem 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.04);
-            transition: transform 0.2s ease;
-        }
-
-        .flow-step:hover {
-            transform: translateX(3px);
-        }
-
-        .flow-step.highlight {
-            background: #eff6ff;
-            border-color: var(--primary-light);
-        }
-
-        .step-num {
-            width: 22px;
-            height: 22px;
-            background: var(--primary-light);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 800;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .flow-step.highlight .step-num {
-            background: var(--primary);
-        }
-
-        .step-text {
-            font-size: 0.82rem;
-            color: var(--text-dark);
-            line-height: 1.35;
-        }
-
-        .flow-arrow {
-            font-size: 0.85rem;
-            color: var(--primary-light);
-            line-height: 1;
-            margin: 0.05rem 0;
-        }
-
-        /* 3. 熱門科系頁籤選單 */
-        .major-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 0.6rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .major-btn {
-            padding: 0.65rem 0.5rem;
-            background: #f8fafc;
-            border: 1px solid var(--border-blue);
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .major-btn:hover, .major-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.25);
-        }
-
-        .major-display-box {
-            background: #f0f9ff;
-            border-radius: 14px;
-            padding: 1.5rem;
-            border: 2px dashed var(--primary-light);
-        }
-
-        /* 4. 準備策略卡片 */
-        .prep-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .prep-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.25rem;
-            border: 1px solid var(--border-blue);
-            border-left: 5px solid var(--primary-dark);
-        }
-
-        .prep-card h4 {
-            font-size: 1.1rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.4rem;
-        }
-
-        /* 5. 時間軸 Timeline */
-        .timeline-container {
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--primary-light);
-            margin: 1.5rem 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -1.95rem;
-            top: 0.25rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 3px solid white;
-        }
-
-        .timeline-item h4 {
-            font-size: 1.05rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.2rem;
-        }
-
-        /* 橫向滑動保護容器 */
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .custom-table {
-            width: 100%;
-            min-width: 580px;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             overflow: hidden;
-            border: 1px solid var(--border-blue);
+            border: 1px solid var(--border-color);
         }
 
-        .custom-table th {
-            background: #dbeafe;
-            color: var(--primary-dark);
-            padding: 0.85rem;
-            font-size: 0.92rem;
-            font-weight: 800;
-            text-align: left;
-        }
-
-        .custom-table td {
-            padding: 0.85rem;
-            font-size: 0.88rem;
-            border-top: 1px solid var(--border-blue);
-        }
-
-        /* FAQ 手風琴 */
-        .faq-item {
-            background: white;
-            border: 1px solid var(--border-blue);
-            border-radius: 10px;
-            margin-bottom: 0.75rem;
-            padding: 1rem 1.25rem;
-        }
-
-        .faq-item h4 {
-            font-size: 1.05rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.4rem;
-        }
-
-        .faq-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Google 表單區塊 */
-        .form-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem 1rem;
-            box-shadow: var(--shadow-lg);
-            border: 2px solid var(--border-blue);
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
-        .iframe-container {
-            width: 100%;
-            max-width: 850px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #fafafa;
-        }
-
-        .iframe-container iframe {
-            width: 100%;
-            height: 850px;
-            border: none;
-        }
-
-        /* Footer 頁尾 */
-        footer {
-            background: var(--primary-dark);
-            color: #f0f9ff;
-            padding: 2rem 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-container {
-            max-width: 950px;
-            margin: 0 auto;
+        .page-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1.25rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2.5rem;
+            gap: 1rem;
         }
 
-        .footer-text {
-            flex: 1;
-            min-width: 280px;
-            line-height: 1.6;
+        .page-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
-        .footer-qrcode {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
-            flex-shrink: 0;
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 750px;
         }
 
-        .footer-qrcode img {
-            width: 95px;
-            height: 95px;
-            border-radius: 8px;
-            background: white;
-            padding: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .sidebar {
+            background: #fafcfd;
+            border-right: 2px solid var(--border-color);
+            padding: 1.25rem 1rem;
         }
 
-        .footer-qrcode span {
-            font-size: 0.82rem;
-            color: #e0f2fe;
+        .sidebar-title {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .college-block {
+            margin-bottom: 1.25rem;
+        }
+
+        .college-header {
+            font-size: 1.05rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            color: var(--primary-blue);
+            padding: 0.4rem 0.2rem;
         }
 
-        /* 📱 手機版 RWD */
-        @media (max-width: 768px) {
-            .container { padding: 1rem 0.75rem; }
-            .nav-tabs { padding: 0.5rem; border-radius: 12px; gap: 0.4rem; }
-            .nav-link { padding: 0.45rem 0.8rem; font-size: 0.82rem; }
-            .major-menu { grid-template-columns: repeat(2, 1fr); }
-            .iframe-container iframe { height: 950px; }
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.25rem;
-            }
+        .dept-list-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem 0.2rem;
+            padding-top: 0.5rem;
+        }
+
+        .dept-btn {
+            font-size: 0.88rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            padding: 0.35rem 0.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            word-break: break-all;
+        }
+
+        .dept-btn:hover {
+            background-color: var(--hover-blue);
+            text-decoration: underline;
+        }
+
+        .dept-btn.active {
+            background-color: var(--primary-blue);
+            color: white !important;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .content-area {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .top-filter-card {
+            background: #f0f6fa;
+            border: 1px solid #d0e1f0;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .filter-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 240px;
+            padding: 0.5rem 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 2px rgba(0, 102, 178, 0.15);
+        }
+
+        .logic-switch-group {
+            display: inline-flex;
+            background: #e2ecf5;
+            padding: 3px;
+            border-radius: 6px;
+            border: 1px solid #c0d4e6;
+        }
+
+        .logic-btn {
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+            color: var(--text-muted);
+        }
+
+        .logic-btn.active-or {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logic-btn.active-and {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subject-tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .subj-chip {
+            font-size: 0.82rem;
+            padding: 0.25rem 0.6rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .subj-chip:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .subj-chip.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .current-category-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .current-title {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .notice-text {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 0.65rem 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            border: 1px solid var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        .data-table td {
+            padding: 0.65rem 0.8rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background-color: #f9fbfd;
+        }
+
+        .data-table tbody tr:hover {
+            background-color: #edf5fc;
+        }
+
+        .quota-num {
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .subj-badge {
+            display: inline-block;
+            background: #eef5fb;
+            color: var(--primary-dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0.1rem;
+            border: 1px solid #cce0f0;
+        }
+
+        .subj-badge.doc-review {
+            background: #fff3cd;
+            color: #856404;
+            border-color: #ffeeba;
+            font-weight: bold;
+        }
+
+        .college-tag {
+            font-size: 0.75rem;
+            color: #666;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 2px solid var(--border-color); }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <header class="page-header">
+            <h1>大學轉學考考試科目總覽</h1>
+            <div style="font-size: 0.88rem; opacity: 0.9;">TKB 升學導航｜全學院四大領域完整資料庫與交叉查詢系統</div>
+        </header>
 
-        <!-- 頂部導覽列 -->
-        <div class="nav-tabs">
-            <a href="#conditions" class="nav-link active">1. 報考條件與暑寒轉</a>
-            <a href="#joint" class="nav-link">2. 聯招機制剖析</a>
-            <a href="#majors" class="nav-link">3. 熱門科系與考科</a>
-            <a href="#preparation" class="nav-link">4. 筆試與書審準備</a>
-            <a href="#faq" class="nav-link">5. 黃金時程與FAQ</a>
-            <a href="#form" class="nav-link">6. 預約轉學考諮詢</a>
-        </div>
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="sidebar-title">大學轉學考考試科目總覽</div>
+                <div id="sidebarMenu"></div>
+            </aside>
 
-        <!-- 1. 轉學考基本條件與暑/寒轉差異 -->
-        <section id="conditions">
-            <h2 class="section-title reveal">🎓 大學轉學考 報考條件與暑寒轉剖析</h2>
-            <div class="card reveal">
-                <div class="conditions-grid">
-                    <div class="cond-card">
-                        <h3>📘 轉學考基本資格門檻</h3>
-                        <ul>
-                            <li><strong>大一升大二（暑轉）：</strong> 大一修業滿兩學期（需完成大一上、下學期成績，即使有不及格科目只要取得修業證明即可報考）。</li>
-                            <li><strong>大二升大三（暑轉）：</strong> 需大學修業滿四學期（相關科系限制較嚴格）。</li>
-                            <li><strong>專科生 / 五專生：</strong> 五專畢業或修滿三專/二專相應學分者，具備同等學力可直接報考大二轉學考。</li>
-                            <li><strong>退學/休學身份：</strong> 具備原校修業證明書與成績單者皆可報考（操行或特殊原因勒令退學需視各校簡章規定）。</li>
-                        </ul>
+            <main class="content-area">
+                <div class="top-filter-card">
+                    <div class="filter-row">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--primary-blue);">🔍 關鍵字搜尋：</span>
+                        <input type="text" id="searchInput" class="search-input" placeholder="輸入學校（如：成大、台大、台北醫學）或科系關鍵字...">
+                        <button id="resetBtn" style="padding: 0.45rem 0.8rem; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">重設篩選</button>
                     </div>
 
-                    <div class="cond-card" style="border-top-color: var(--primary-light);">
-                        <h3>⚡ 暑期轉學考 vs 寒假轉學考</h3>
-                        <ul>
-                            <li><strong>暑期轉學考（6~7月考試）：</strong> 全國規模最大、名額最多！主要看重「筆試成績」或「書審+筆試」，開放跨考與平轉。</li>
-                            <li><strong>寒假轉學考（1~2月放榜）：</strong> 多在升大二上或大三上進行，名額較少且以「書審+面試」為主，多數學校要求「限相關科系」才能報考。</li>
-                        </ul>
+                    <div class="filter-row">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--primary-blue);">⚡ 篩選模式：</span>
+                        <div class="logic-switch-group">
+                            <div id="logicOrBtn" class="logic-btn active-or" onclick="setFilterLogic('OR')">OR（含任一科）</div>
+                            <div id="logicAndBtn" class="logic-btn" onclick="setFilterLogic('AND')">AND（同時包含所有考科）</div>
+                        </div>
+                        <span style="font-size: 0.82rem; color: var(--text-muted);">*搜尋或勾選考科時，自動進行【全校系跨院系】全面比對功能</span>
+                    </div>
+
+                    <div class="filter-row">
+                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--primary-blue);">📚 採計考科複選：</span>
+                        <div class="subject-tags-container" id="subjectFilterBox"></div>
                     </div>
                 </div>
 
-                <!-- 對比表格 -->
-                <h3 style="font-size: 1.15rem; color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.8rem;">📊 暑轉與寒轉 完整特點對比</h3>
+                <div class="current-category-banner">
+                    <div class="current-title" id="displayTitle"></div>
+                    <div style="font-size: 0.9rem; color: var(--primary-blue); font-weight: 700;">
+                        共找到 <span id="resultCount" style="color: var(--badge-red); font-size: 1.1rem;">0</span> 筆資料
+                    </div>
+                </div>
+
+                <div class="notice-text">
+                    *本網頁資料僅供參考，各校各系招生名額及考科資訊請以各校公佈之簡章為準。<br>
+                    *此網頁資料僅列出各校各系二年級轉學考招生名額及考科。
+                </div>
+
                 <div class="table-responsive">
-                    <table class="custom-table">
+                    <table class="data-table">
                         <thead>
                             <tr>
-                                <th>比較項目</th>
-                                <th>暑期轉學考（暑轉）</th>
-                                <th>寒假轉學考（寒轉）</th>
+                                <th style="width: 20%;">學校</th>
+                                <th style="width: 30%;">科系 (學院類別)</th>
+                                <th style="width: 12%;">組別</th>
+                                <th style="width: 10%;">名額</th>
+                                <th style="width: 28%;">考科科目</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>簡章公告 / 報名時間</strong></td>
-                                <td><strong>4月下旬~5月初發售簡章</strong>，5~6月報名，6~7月筆試，8月放榜。</td>
-                                <td>11月發售簡章，12月報名，1~2月審查/面試，2月放榜。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>招考名額</strong></td>
-                                <td><strong>名額極多</strong>（因退學/轉系回流釋出大量缺額）。</td>
-                                <td>名額較少（僅補足當學期突發缺額）。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>主要採計方式</strong></td>
-                                <td>筆試測驗為主（考 2~4 科），部分校系採純書審。</td>
-                                <td><strong>書面審查 + 口試為主</strong>，極少數考筆試。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>跨系/跨領域限制</strong></td>
-                                <td>開放跨考！理工跨商管、私立翻轉國立最佳機會。</td>
-                                <td>限制較多，多數要求需就讀相關科系滿三學期。</td>
-                            </tr>
-                        </tbody>
+                        <tbody id="dataTableBody"></tbody>
                     </table>
                 </div>
-            </div>
-        </section>
-
-        <!-- 2. 聯招分類與機制（圖解步驟版） -->
-        <section id="joint">
-            <h2 class="section-title reveal">🏛️ 全台各大聯招系統與選填志願機制</h2>
-            <div class="card reveal">
-                <p style="margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.95rem;">
-                    轉學考最大的優勢在於<strong>「一考多投」機制</strong>！各大聯招系統在「選填志願與考試的先後順序」運作流程拆解如下：
-                </p>
-
-                <div class="joint-grid">
-                    <!-- 1. 台聯大 -->
-                    <div class="joint-card">
-                        <span class="joint-badge">先填志願 ➔ 後考試</span>
-                        <h4>1. 台聯大 UST 聯招</h4>
-                        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.2rem;">
-                            <strong>涵蓋學校：</strong> 清華、陽明交大、中央、政大等
-                        </p>
-                        
-                        <div class="mechanism-title">⚙️ 運作流程拆解：</div>
-                        <div class="flow-container">
-                            <div class="flow-step">
-                                <span class="step-num">1</span>
-                                <span class="step-text"><strong>5月 網路報名</strong><br>選定考科組別並預先填寫志願順序</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step">
-                                <span class="step-num">2</span>
-                                <span class="step-text"><strong>7月 參加一次考試</strong><br>前往考場應考該組別統一考題</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step highlight">
-                                <span class="step-num">3</span>
-                                <span class="step-text"><strong>分數公布與分發</strong><br>由系統依考生成績與志願自動分發</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. 台綜合 -->
-                    <div class="joint-card">
-                        <span class="joint-badge">先填志願 ➔ 後考試</span>
-                        <h4>2. 台綜合 TCU 聯招</h4>
-                        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.2rem;">
-                            <strong>涵蓋學校：</strong> 成功、中山、中興、中正
-                        </p>
-
-                        <div class="mechanism-title">⚙️ 運作流程拆解：</div>
-                        <div class="flow-container">
-                            <div class="flow-step">
-                                <span class="step-num">1</span>
-                                <span class="step-text"><strong>5月 網路報名</strong><br>選定類組考科並預先填寫志願順序</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step">
-                                <span class="step-num">2</span>
-                                <span class="step-text"><strong>7月 參加一次考試</strong><br>前往考場應考該類組統一考題</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step highlight">
-                                <span class="step-num">3</span>
-                                <span class="step-text"><strong>分數公布與分發</strong><br>由系統依考生成績與志願自動分發</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. 私醫聯招 -->
-                    <div class="joint-card">
-                        <span class="joint-badge" style="background: #059669;">先考試 ➔ 出分後填志願</span>
-                        <h4>3. 私醫聯招</h4>
-                        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.2rem;">
-                            <strong>涵蓋學校：</strong> 中國醫、中山醫、高醫、長庚、慈濟、北醫
-                        </p>
-
-                        <div class="mechanism-title">⚙️ 運作流程拆解：</div>
-                        <div class="flow-container">
-                            <div class="flow-step">
-                                <span class="step-num">1</span>
-                                <span class="step-text"><strong>4-5月發售簡章 / 7月考試</strong><br>考國、英、生、化（全單選，答錯不倒扣）</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step">
-                                <span class="step-num">2</span>
-                                <span class="step-text"><strong>8月中 查閱對照組距</strong><br>收到成績單與全國落點排名數據</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step highlight">
-                                <span class="step-num">3</span>
-                                <span class="step-text"><strong>線上選填志願</strong><br>對照精準落點，最多可填 30 個志願</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. 單招 -->
-                    <div class="joint-card">
-                        <span class="joint-badge" style="background: #475569;">獨立招生重鎮</span>
-                        <h4>4. 國立台大 / 政大單招</h4>
-                        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.2rem;">
-                            <strong>代表學校：</strong> 台大、政大（獨立系所）、臺北大學
-                        </p>
-
-                        <div class="mechanism-title">⚙️ 運作流程拆解：</div>
-                        <div class="flow-container">
-                            <div class="flow-step">
-                                <span class="step-num">1</span>
-                                <span class="step-text"><strong>5~6月 獨立報名</strong><br>查閱各系所獨立簡章與名額</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step">
-                                <span class="step-num">2</span>
-                                <span class="step-text"><strong>7月 獨立筆試</strong><br>參加該校系獨立出題之專精科目</span>
-                            </div>
-                            <div class="flow-arrow">⬇️</div>
-                            <div class="flow-step highlight">
-                                <span class="step-num">3</span>
-                                <span class="step-text"><strong>個別放榜</strong><br>依該校系錄取標準單獨公布錄取名單</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: #e0f2fe; padding: 1.1rem; border-radius: 12px; margin-top: 1.5rem; border-left: 5px solid var(--primary);">
-                    <h4 style="color: var(--primary-dark); margin-bottom: 0.3rem; font-size: 0.98rem;">💡 志願選填與答題策略提醒：</h4>
-                    <p style="font-size: 0.88rem; color: #1e3a8a;">
-                        ▪ <strong>台聯大 / 台綜大：</strong> 報名時即需確定志願排序，選填前務必評估自身強項科目組合。<br>
-                        ▪ <strong>私醫聯招：</strong> 4月下旬發售簡章，題目全為單選題且**答錯不倒扣**！臨場考試若遇難題切勿留白，務必填滿答案卡爭取最高分數！
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 熱門科系介紹與考科組合 -->
-        <section id="majors">
-            <h2 class="section-title reveal">🔍 熱門轉學考領域與考科組合</h2>
-            <div class="card reveal">
-                <p style="margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.92rem;">請點擊下方領域按鈕，快速查閱該領域的核心考科與備考重點：</p>
-
-                <div class="major-menu" id="majorMenu"></div>
-                <div class="major-display-box" id="majorDisplay"></div>
-            </div>
-        </section>
-
-        <!-- 4. 考試科目與書審準備 -->
-        <section id="preparation">
-            <h2 class="section-title reveal">✍️ 筆試衝刺 vs 備審資料（書審）準備雙策略</h2>
-            <div class="card reveal">
-                
-                <h3 style="font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 1rem;">📌 策略一：轉學考「筆試」高分四大關鍵</h3>
-                <div class="prep-grid" style="margin-bottom: 2rem;">
-                    <div class="prep-card">
-                        <h4>1. 共同科目（國文/英文）門檻</h4>
-                        <p style="font-size: 0.88rem;">台大、台聯大等校對英文常設有「前標/均標門檻」。英文單字量與長篇閱讀是拉開基本分的關鍵。</p>
-                    </div>
-                    <div class="prep-card">
-                        <h4>2. 專業科目（微積分/經濟/物理）</h4>
-                        <p style="font-size: 0.88rem;">轉學考專業科目範圍廣且深入（達大學大一原文書水平）。掌握各校近5~10年考古題題型極為重要。</p>
-                    </div>
-                    <div class="prep-card">
-                        <h4>3. 考古題演練與命題風格</h4>
-                        <p style="font-size: 0.88rem;">台聯大偏好觀念推導與觀念題；台綜合偏好計算實務。針對目標學校的風格進行觀念特訓。</p>
-                    </div>
-                </div>
-
-                <h3 style="font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 1rem;">📄 策略二：近年主流「書面審查（書審）」高分撰寫公式</h3>
-                <div class="prep-grid">
-                    <div class="prep-card" style="border-left-color: var(--primary-light);">
-                        <h4>1. 歷年成績單與 GPA 亮點包裝</h4>
-                        <p style="font-size: 0.88rem;">教授關注大一相關專業科目的表現（如：申請資工系看重微積分與程式設計成績）。若總排名不佳，可列出「專業科目進步曲線」。</p>
-                    </div>
-                    <div class="prep-card" style="border-left-color: var(--primary-light);">
-                        <h4>2. 就讀動機（自傳與轉學原因）</h4>
-                        <p style="font-size: 0.88rem;">切忌批評原學校！應聚焦於「目標學校的獨特資源、師資、研究方向」如何符合自己的長期職涯規劃。</p>
-                    </div>
-                    <div class="prep-card" style="border-left-color: var(--primary-light);">
-                        <h4>3. 讀書計畫與未來展望</h4>
-                        <p style="font-size: 0.88rem;">具體列出轉學成功後的補修學分規劃、想參與的實驗室或專題計畫，展現極強的學習企圖心。</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 5. 黃金準備時程與常見 FAQ -->
-        <section id="faq">
-            <h2 class="section-title reveal">⏱️ 轉學考黃金時程表與常見問題 FAQ</h2>
-            <div class="card reveal">
-                
-                <h3 style="font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 0.8rem;">🗓️ 大一升大二 轉學考黃金準備時間軸</h3>
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <h4>【9月 - 11月】大一上開學：奠定基礎與維持 GPA</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">確立轉學目標與考科組合。原學校課業維持一定水平（為書審或抵免學分打底），並啟動專業科目一輪打底。</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>【12月 - 2月】寒假期間：觀念強化與寒轉關心</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">利用寒假進行觀念地毯式複習，補強弱項章節；同時關注目標學校寒轉簡章與缺額公告。</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>【4月下旬 - 5月】簡章公告、發售與網路報名</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);"><strong>私醫聯招、台聯大、台綜大簡章陸續發售與下載</strong>！確認報名時間與考科，台聯/台綜報名時需排定志願順序。</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>【6月 - 7月】考前衝刺與暑期考試</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">瘋狂演練目標學校近 5~10 年考古題，7月陸續參加台聯大、台綜大與私醫聯招筆試。</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4>【8月】私醫選填志願、放榜與學分抵免</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">私醫聯招考生查閱落點組距並完成線上填志願。8月各校放榜，確定錄取後至原校辦理修業證明並進行學分抵免。</p>
-                    </div>
-                </div>
-
-                <h3 style="font-size: 1.2rem; color: var(--primary-dark); margin-top: 2rem; margin-bottom: 1rem;">❓ 轉生族最常問的熱門迷思（FAQ）</h3>
-                
-                <div class="faq-item">
-                    <h4>Q1：私醫聯招簡章什麼時候出來？報名與考試時間怎麼安排？</h4>
-                    <p>答：私醫聯招簡章通常於每年 **4 月下旬至 5 月初發售**（網路開放免費下載）。5 月下旬至 6 月初進行網路報名，7 月底參加筆試，8 月中旬公布成績後進行選填志願，8 月下旬放榜。</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Q2：轉學考過去，原學校的學分可以抵免嗎？會不會延畢？</h4>
-                    <p>答：可以抵免！錄取後可拿原學校成績單至新學校申請「學分抵免」。只要原校課程名稱、學分數與新學校相近且成績達標，多數基礎科目（如：國文、英文、微積分、普化）皆可順利抵免，只要規劃得當完全不需要延畢！</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Q3：私醫聯招答錯會倒扣分數嗎？答案卡不確定要不要猜？</h4>
-                    <p>答：**完全不會倒扣！**私醫聯招考試全部為單選題（國、英、生、化四科），答錯不倒扣。因此考試最後關頭就算遇到不會的題目也絕對不要留白！</p>
-                </div>
-
-                <!-- 🔻 新增 Q4 與 Q5 🔻 -->
-                <div class="faq-item">
-                    <h4>Q4：轉學考成功之後，還可以再參加校內轉系（系轉）嗎？</h4>
-                    <p>答：**完全可以！**成功轉學至新學校後，就具備該校的正式學籍，身分與一般學生無異。只要符合目標系所規定的學業成績門檻（如 GPA 排名）或修課條件，未來在大二下或大三上一樣可以自由報名參加該校的校內轉系（系轉）。</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Q5：當初以「繁星推薦」進入大學的學生，可以參加轉學考或校內轉系嗎？</h4>
-                    <p>答：<br>
-                    ▪ <strong>跨校轉學考：完全可以！</strong> 繁星推薦僅限制考生「當年度不得參加申請入學或分發入學」，大一入學後即擁有正式大學學籍，報考他校轉學考完全不受任何限制。<br>
-                    ▪ <strong>校內轉系（系轉）：須視各校規定！</strong> 依教育部規定，繁星生是否能轉系由各大學自主決定。部分學校對繁星生設有轉系限制（例如不可轉入特定熱門系所或禁止轉系），但也有許多學校已開放轉系。建議入學後先查閱該校教務處的「繁星推薦學生轉系作業要點」。
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 6. 預約線上諮詢與表單區塊 -->
-        <section id="form">
-            <h2 class="section-title reveal">📝 預約一對一轉學考策略諮詢</h2>
-            <div class="form-card reveal">
-                <p style="font-size: 1rem; color: var(--primary-dark); font-weight: 700; margin-bottom: 1.25rem;">
-                    想了解更多台聯大/台綜合考科組合、最新招考趨勢或學分抵免規劃嗎？填寫表單，專業升學顧問將為您提供專屬諮詢！
-                </p>
-                <div class="iframe-container">
-                    <iframe src="https://forms.gle/Eoz8sYKPGWqyDPa77" width="100%" height="850" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
-                </div>
-            </div>
-        </section>
-
+            </main>
+        </div>
     </div>
 
-    <!-- 頁尾 -->
-    <footer>
-        <div class="footer-container">
-            <p class="footer-text">
-                © 2026 大學轉學考全方位升學導航系統 | 陪伴考生翻轉學歷邁向頂尖名校 | 網站架設：TKB台中中科學堂
-            </p>
-            <div class="footer-qrcode">
-                <img src="qrcode.png" alt="LINE 官方帳號 QR Code">
-                <span>官方帳號</span>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // 1. 熱門科系資料庫（含新增心理系與傳播領域）
-        const majorsData = [
+        const menuStructure = [
             {
-                id: "ee_cs",
-                name: "資工 / 電機領域",
-                subjects: " 國文 + 英文+ 微積分 + 大一普通物理",
-                highlights: "頂大熱門缺額極多！台聯大/台綜合理工組重點考科，觀念推導與計算並重，著重微積分偏微分與重積分極限。",
-                career: "半導體IC設計工程師、AI演算法開發、軟體架構師"
+                college: "理工學院",
+                depts: [
+                    "電機工程", "電子工程", "光電工程",
+                    "通訊工程", "資訊工程", "機械工程",
+                    "材料工程", "化學工程", "環境工程",
+                    "工業工程", "土木工程", "建築",
+                    "心理", "物理", "數學", "化學",
+                    "生命科學", "生化科技", "大氣/地科",
+                    "農藝/園藝", "動物/植物", "其他工科"
+                ]
             },
             {
-                id: "biz",
-                name: "商管 / 財金領域",
-                subjects: "國文 + 英文 +微積分 + 經濟學",
-                highlights: "不論私立轉國立或文轉商首選！微積分著重極值問題與經濟應用，經濟學涵蓋個經與總經基礎大一範圍。",
-                career: "儲備幹部(MA)、金融分析師、證券研究員"
+                college: "商管學院",
+                depts: [
+                    "企業管理", "國企國貿", "財務金融",
+                    "會計", "運輸管理", "經濟",
+                    "統計", "風管保險", "資訊管理",
+                    "不動產管理", "休閒管理", "觀光餐旅", "行銷"
+                ]
             },
             {
-                id: "med_bio",
-                name: "私醫 / 藥學 / 生技",
-                subjects: "國文 + 英文 + 普通生物學 + 普通化學",
-                highlights: "私醫聯招核心組合！全選擇題題型，競爭激烈。藥學系與物治系為最搶手熱門目標。",
-                career: "藥師、臨床物治師、醫檢師、生技研發員"
+                college: "文法學院",
+                depts: [
+                    "中國文學", "外國語文", "日本語文",
+                    "其他外文", "諮商輔導", "社會/社工",
+                    "大眾傳播", "教育", "法律",
+                    "政治", "公共行政", "哲學", "歷史", "其他文科"
+                ]
             },
             {
-                id: "law_lit",
-                name: "法律 / 外文 / 人文",
-                subjects: "國文 + 英文 + 專業科目(民法/刑法/憲法)",
-                highlights: "政大、台大、東吳法律單招重點！極度著重長篇閱讀理解與申論題論述邏輯力。",
-                career: "律師、司法官、法務專員、跨國翻譯企劃"
-            },
-            {
-                id: "psychology",
-                name: "心理學系",
-                subjects: "國文 + 英文 + 普通心理學 + 心理統計學 / 普通生物學",
-                highlights: "台大、政大、成大、中正等校熱門目標！心理學系結合人文與科學實驗，專業科目著重統計邏輯、數據分析與實驗推論。",
-                career: "諮商心理師、臨床心理師、HR人力資源、UX用戶體驗研究員"
-            },
-            {
-                id: "comm",
-                name: "傳播 / 媒體領域",
-                subjects: "國文 + 英文 + 傳播理論 + 社會學 / 新聞學",
-                highlights: "政大傳播學院、中正傳播等名校首選！考題極度重視社會時事議題敏感度、數位媒體趨勢分析與長篇論述能力。",
-                career: "新聞記者/主播、社群行銷企劃、公關顧問、新媒體營運主管"
+                college: "醫學院",
+                depts: [
+                    "醫檢放射", "食品營養", "中醫/牙醫",
+                    "獸醫", "藥學", "公共衛生",
+                    "生物醫學", "物理治療", "醫務管理",
+                    "護理", "其他醫學"
+                ]
             }
         ];
 
-        let currentMajorId = "ee_cs";
+        const rawExamData = [
+            // ================= 理工學院 (189筆) =================
+            { college: "理工學院", deptCat: "電機工程", school: "台灣大學", dept: "電機工程學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "陽明交通大學", dept: "電機工程學系", group: "乙A組", quota: 5, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "陽明交通大學", dept: "電機工程學系", group: "乙B組", quota: 2, subjects: ["英文", "微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "電機工程", school: "清華大學", dept: "電機工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "成功大學", dept: "電機工程學系", group: "", quota: 6, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "中山大學", dept: "電機工程學系", group: "", quota: 2, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "中央大學", dept: "電機工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "中興大學", dept: "電機工程學系", group: "", quota: 6, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "中正大學", dept: "電機工程學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "台北大學", dept: "電機工程學系", group: "", quota: 3, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "電機工程", school: "海洋大學", dept: "電機工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "嘉義大學", dept: "電機工程學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "台灣師大", dept: "電機工程學系", group: "", quota: 3, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "電機工程", school: "彰化師大", dept: "電機工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "高雄大學", dept: "電機工程學系", group: "", quota: 2, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "電機工程", school: "高雄師大", dept: "電機工程學系", group: "", quota: 7, subjects: ["微積分"] },
+            { college: "理工學院", deptCat: "電機工程", school: "宜蘭大學", dept: "電機工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "宜蘭大學", dept: "電機工程學系", group: "進修部", quota: 8, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "台南大學", dept: "電機工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "淡江大學", dept: "電機工程學系", group: "電機資訊組", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "淡江大學", dept: "電機工程學系", group: "電機通訊組", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "淡江大學", dept: "電機工程學系", group: "電機與系統組", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "輔仁大學", dept: "電機工程學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "長庚大學", dept: "電機工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "銘傳大學", dept: "電機工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "元智大學", dept: "電機工程學系", group: "甲組", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "元智大學", dept: "電機工程學系", group: "乙組", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "元智大學", dept: "電機工程學系", group: "丙組", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "東海大學", dept: "電機工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "逢甲大學", dept: "電機工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "逢甲大學", dept: "自動控制工程學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電機工程", school: "大同大學", dept: "電機工程學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "電機工程", school: "逢甲大學", dept: "美國加州聖荷西州立大學電機工程", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
 
-        function initMajors() {
-            const menuContainer = document.getElementById('majorMenu');
-            menuContainer.innerHTML = '';
+            { college: "理工學院", deptCat: "電子工程", school: "宜蘭大學", dept: "電子工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電子工程", school: "長庚大學", dept: "電子工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電子工程", school: "逢甲大學", dept: "電子工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "電子工程", school: "銘傳大學", dept: "半導體應用", group: "學士學位學程", quota: 2, subjects: ["書審"] },
 
-            majorsData.forEach(item => {
-                const btn = document.createElement('div');
-                btn.className = `major-btn ${item.id === currentMajorId ? 'active' : ''}`;
-                btn.innerText = item.name;
-                btn.onclick = (e) => switchMajor(item.id, e);
-                menuContainer.appendChild(btn);
+            { college: "理工學院", deptCat: "光電工程", school: "陽明交通大學", dept: "光電工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "光電工程", school: "成功大學", dept: "光電科學與工程學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "光電工程", school: "中央大學", dept: "光電科學與工程學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "光電工程", school: "台灣師大", dept: "光電工程", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "光電工程", school: "逢甲大學", dept: "光電科學與工程學系", group: "", quota: 4, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "通訊工程", school: "中正大學", dept: "通訊工程學系", group: "", quota: 4, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "通訊工程", school: "屏東大學", dept: "電腦與通訊學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "通訊工程", school: "海洋大學", dept: "通訊與導航工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "通訊工程", school: "逢甲大學", dept: "通訊工程學系", group: "", quota: 9, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "資訊工程", school: "台灣大學", dept: "資訊工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "清華大學", dept: "資訊工程學系", group: "", quota: 5, subjects: ["英文", "微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "中興大學", dept: "資訊工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "中正大學", dept: "資訊工程學系", group: "", quota: 4, subjects: ["英文", "微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "台中教大", dept: "資訊工程學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "彰化師大", dept: "資訊工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "高雄師大", dept: "軟體工程與管理學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "高雄大學", dept: "資訊工程學系", group: "", quota: 1, subjects: ["微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "宜蘭大學", dept: "資訊工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "長庚大學", dept: "資訊工程學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "淡江大學", dept: "資訊工程學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "淡江大學", dept: "資訊工程學系", group: "進修學士班", quota: 23, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "淡江大學", dept: "資訊工程學系", group: "全英語學士班", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "輔仁大學", dept: "資訊工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "元智大學", dept: "資訊工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "逢甲大學", dept: "資訊工程學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "銘傳大學", dept: "資訊工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "大同大學", dept: "資訊工程學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "屏東大學", dept: "資訊工程學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "東海大學", dept: "資訊工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "逢甲大學", dept: "美國加州舊金山州立大學資訊工程", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "資訊工程", school: "逢甲大學", dept: "澳洲蒙納許大學資訊工程", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
+
+            { college: "理工學院", deptCat: "機械工程", school: "台灣大學", dept: "機械工程學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "台灣大學", dept: "工程科學及海洋工程學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "機械工程", school: "台灣大學", dept: "生物環境系統工程學系", group: "", quota: 2, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "台灣大學", dept: "生物機電工程學系", group: "", quota: 2, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "清華大學", dept: "動力機械工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "清華大學", dept: "工程與系統科學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "成功大學", dept: "系統及船舶機電工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "成功大學", dept: "航空太空工程學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中央大學", dept: "太空科學與工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "成功大學", dept: "機械工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "陽明交通大學", dept: "機械工程學系", group: "", quota: 5, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中央大學", dept: "機械工程學系", group: "光機電工程組", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中央大學", dept: "機械工程學系", group: "先進材料與精密製造組", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中央大學", dept: "機械工程學系", group: "設計分析組", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中興大學", dept: "機械工程學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中正大學", dept: "機械工程學系", group: "機械工程組", quota: 5, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中正大學", dept: "機械工程學系", group: "光機電整合工程組", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中興大學", dept: "生物產業機電工程學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "中山大學", dept: "機械與機電工程學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "機械工程", school: "海洋大學", dept: "機械與機電工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "台灣師大", dept: "機電工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "彰化師大", dept: "機電工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "嘉義大學", dept: "機械與能源工程學系", group: "", quota: 6, subjects: ["微積分"] },
+            { college: "理工學院", deptCat: "機械工程", school: "嘉義大學", dept: "生物機電工程學系", group: "", quota: 7, subjects: ["英文", "微積分"] },
+            { college: "理工學院", deptCat: "機械工程", school: "嘉義大學", dept: "生物機電工程學系", group: "進修部", quota: 10, subjects: ["英文", "微積分"] },
+            { college: "理工學院", deptCat: "機械工程", school: "宜蘭大學", dept: "機械與機電工程學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "宜蘭大學", dept: "生物機電工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "淡江大學", dept: "機械與機電工程學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "長庚大學", dept: "機械工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "元智大學", dept: "機械工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "大同大學", dept: "機械與材料工程學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "機械工程", school: "逢甲大學", dept: "機械與電腦輔助工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "逢甲大學", dept: "航太與系統工程學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "機械工程", school: "淡江大學", dept: "航空太空工程學系", group: "", quota: 15, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "材料工程", school: "海洋大學", dept: "光電與材料科技學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "材料工程", school: "成功大學", dept: "材料科學及工程學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "材料工程", school: "台灣大學", dept: "材料科學與工程學系", group: "", quota: 2, subjects: ["國文", "英文", "材料科學導論", "普通物理"] },
+            { college: "理工學院", deptCat: "材料工程", school: "中興大學", dept: "材料科學與工程學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "材料工程", school: "逢甲大學", dept: "材料科學與工程學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "材料工程", school: "中山大學", dept: "材料與光電科學學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "材料工程", school: "陽明交通大學", dept: "材料科學與工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "材料工程", school: "清華大學", dept: "材料科學工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "材料工程", school: "台南大學", dept: "材料科學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "材料工程", school: "逢甲大學", dept: "纖維與複合材料學系", group: "", quota: 10, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "化學工程", school: "台灣大學", dept: "化學工程學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "清華大學", dept: "化學工程學系", group: "", quota: 2, subjects: ["微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "成功大學", dept: "化學工程學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "中興大學", dept: "化學工程學系", group: "", quota: 4, subjects: ["英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "中正大學", dept: "化學工程學系", group: "", quota: 3, subjects: ["英文", "微積分", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "逢甲大學", dept: "化學工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "中央大學", dept: "化學工程與材料工程學系", group: "", quota: 1, subjects: ["微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "化學工程", school: "宜蘭大學", dept: "化學工程與材料工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "淡江大學", dept: "化學工程與材料工程學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "長庚大學", dept: "化工與材料工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "元智大學", dept: "化學工程與材料科學學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "東海大學", dept: "化學工程與材料工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學工程", school: "大同大學", dept: "化學工程與生物科技學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+
+            { college: "理工學院", deptCat: "環境工程", school: "成功大學", dept: "環境工程學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "環境工程", school: "中興大學", dept: "環境工程學系", group: "", quota: 1, subjects: ["國文", "英文", "微積分", "普通化學"] },
+            { college: "理工學院", deptCat: "環境工程", school: "宜蘭大學", dept: "環境工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "環境工程", school: "宜蘭大學", dept: "環境工程學系", group: "進修部", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "環境工程", school: "東海大學", dept: "環境科學與工程學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "環境工程", school: "逢甲大學", dept: "環境工程與科學學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "環境工程", school: "中山大學", dept: "海洋環境及工程學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "環境工程", school: "淡江大學", dept: "水資源及環境工程學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "環境工程", school: "中興大學", dept: "土壤環境科學系", group: "", quota: 4, subjects: ["英文", "普通化學"] },
+
+            { college: "理工學院", deptCat: "工業工程", school: "清華大學", dept: "工業工程與工程管理學系", group: "", quota: 2, subjects: ["英文", "微積分", "計算機概論"] },
+            { college: "理工學院", deptCat: "工業工程", school: "元智大學", dept: "工業工程與管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "工業工程", school: "逢甲大學", dept: "工業工程與系統管理學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "工業工程", school: "東海大學", dept: "工業工程與經營資訊學系", group: "", quota: 2, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "土木工程", school: "台灣大學", dept: "土木工程學系", group: "", quota: 5, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "陽明交通大學", dept: "土木工程學系", group: "甲組", quota: 10, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "陽明交通大學", dept: "土木工程學系", group: "乙組", quota: 5, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "成功大學", dept: "土木工程學系", group: "", quota: 6, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "中央大學", dept: "土木工程學系", group: "", quota: 12, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "中興大學", dept: "土木工程學系", group: "", quota: 6, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "暨南大學", dept: "土木工程學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "宜蘭大學", dept: "土木工程學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "淡江大學", dept: "土木工程學系", group: "", quota: 18, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "逢甲大學", dept: "土木工程學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "逢甲大學", dept: "土木工程學系營建工程與管理", group: "進修學士班", quota: 22, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "嘉義大學", dept: "土木與水資源工程學系", group: "", quota: 2, subjects: ["英文", "微積分"] },
+            { college: "理工學院", deptCat: "土木工程", school: "高雄大學", dept: "土木與環境工程學系", group: "", quota: 3, subjects: ["面試"] },
+            { college: "理工學院", deptCat: "土木工程", school: "中興大學", dept: "水土保持學系", group: "", quota: 4, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "土木工程", school: "逢甲大學", dept: "水利工程與資源保育學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "土木工程", school: "成功大學", dept: "水利及海洋工程學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+
+            { college: "理工學院", deptCat: "建築", school: "淡江大學", dept: "建築學系", group: "", quota: 13, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "建築", school: "銘傳大學", dept: "建築學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "建築", school: "高雄大學", dept: "建築學系", group: "", quota: 5, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "建築", school: "東海大學", dept: "建築學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "建築", school: "逢甲大學", dept: "建築", group: "學士學位學程", quota: 7, subjects: ["英文", "建築設計"] },
+            { college: "理工學院", deptCat: "建築", school: "實踐大學", dept: "建築設計學系", group: "", quota: 1, subjects: ["創意設計", "作品集面試"] },
+            { college: "理工學院", deptCat: "建築", school: "實踐大學", dept: "建築職人", group: "學士學位學程", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "建築", school: "逢甲大學", dept: "都市計畫與空間資訊學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "建築", school: "銘傳大學", dept: "都市設計與永續發展學系", group: "", quota: 1, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "心理", school: "台灣大學", dept: "心理學系", group: "", quota: 5, subjects: ["國文", "英文", "普通心理學", "心理及教育統計學"] },
+            { college: "理工學院", deptCat: "心理", school: "政治大學", dept: "心理學系", group: "", quota: 1, subjects: ["國文", "英文", "普通心理學", "心理及教育統計學"] },
+            { college: "理工學院", deptCat: "心理", school: "成功大學", dept: "心理學系", group: "", quota: 5, subjects: ["英文", "心理學概論", "心理與教育統計學"] },
+            { college: "理工學院", deptCat: "心理", school: "中正大學", dept: "心理學系", group: "", quota: 3, subjects: ["英文", "心理學概論", "心理與教育統計學"] },
+            { college: "理工學院", deptCat: "心理", school: "中山醫學", dept: "心理學系", group: "", quota: 1, subjects: ["國文", "英文"] },
+            { college: "理工學院", deptCat: "心理", school: "高雄醫學", dept: "心理學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物學"] },
+            { college: "理工學院", deptCat: "心理", school: "東吳大學", dept: "心理學系", group: "", quota: 5, subjects: ["英文", "普通心理學", "心理及教育統計學"] },
+            { college: "理工學院", deptCat: "心理", school: "輔仁大學", dept: "心理學系", group: "", quota: 3, subjects: ["普通心理學"] },
+            { college: "理工學院", deptCat: "心理", school: "輔仁大學", dept: "臨床心理學系", group: "", quota: 8, subjects: ["書審", "面試"] },
+
+            { college: "理工學院", deptCat: "物理", school: "台灣大學", dept: "物理學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "成功大學", dept: "物理學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "中正大學", dept: "物理學系", group: "", quota: 3, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "中山大學", dept: "物理學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "中興大學", dept: "物理學系", group: "一般物理組", quota: 3, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "中興大學", dept: "物理學系", group: "光電物理組", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "台灣師大", dept: "物理學系", group: "", quota: 1, subjects: ["物理測驗"] },
+            { college: "理工學院", deptCat: "物理", school: "彰化師大", dept: "物理學系", group: "物理組", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "物理", school: "高雄師大", dept: "物理學系", group: "", quota: 2, subjects: ["面試"] },
+            { college: "理工學院", deptCat: "物理", school: "淡江大學", dept: "物理學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "物理", school: "東吳大學", dept: "物理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "物理", school: "輔仁大學", dept: "物理學系", group: "光電物理組", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "物理", school: "輔仁大學", dept: "物理學系", group: "電子物理組", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "物理", school: "陽明交通大學", dept: "電子物理學系", group: "光電與奈米科學組", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "陽明交通大學", dept: "電子物理學系", group: "電子物理組", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "物理", school: "嘉義大學", dept: "電子物理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "物理", school: "高雄大學", dept: "應用物理學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "物理", school: "屏東大學", dept: "應用物理學系", group: "光電暨材料組", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "物理", school: "屏東大學", dept: "應用物理學系", group: "半導體組", quota: 3, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "物理", school: "東海大學", dept: "應用物理學系", group: "", quota: 3, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "數學", school: "台灣大學", dept: "數學系", group: "", quota: 2, subjects: ["國文", "英文", "微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "清華大學", dept: "數學系", group: "甲組(數學組)", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "數學", school: "清華大學", dept: "數學系", group: "乙組(應用數學組)", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "數學", school: "中央大學", dept: "數學系", group: "計算與資料科學組", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "數學", school: "中央大學", dept: "數學系", group: "數學科學組", quota: 3, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "數學", school: "中正大學", dept: "數學系", group: "", quota: 1, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "台灣師大", dept: "數學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "彰化師大", dept: "數學系", group: "", quota: 2, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "高雄師大", dept: "數學系", group: "數學組", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "高雄師大", dept: "數學系", group: "應用數學組", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "東吳大學", dept: "數學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "輔仁大學", dept: "數學系", group: "資訊數學組", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "輔仁大學", dept: "數學系", group: "應用數學組", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "成功大學", dept: "數學系", group: "", quota: 4, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "淡江大學", dept: "應用數學與數據科學學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "陽明交通大學", dept: "應用數學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "數學", school: "中山大學", dept: "應用數學系", group: "", quota: 1, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "中興大學", dept: "應用數學系", group: "應用數學組", quota: 1, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "中興大學", dept: "應用數學系", group: "數據科學與計算組", quota: 1, subjects: ["微積分", "線性代數"] },
+            { college: "理工學院", deptCat: "數學", school: "高雄大學", dept: "應用數學系", group: "", quota: 4, subjects: ["微積分"] },
+            { college: "理工學院", deptCat: "數學", school: "逢甲大學", dept: "應用數學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "台南大學", dept: "應用數學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "數學", school: "屏東大學", dept: "應用數學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "數學", school: "東海大學", dept: "智慧計算暨應用數學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "化學", school: "台灣大學", dept: "化學系", group: "", quota: 2, subjects: ["國文", "英文", "普通化學", "普通物理"] },
+            { college: "理工學院", deptCat: "化學", school: "清華大學", dept: "化學系", group: "", quota: 2, subjects: ["普通化學", "普通物理", "微積分"] },
+            { college: "理工學院", deptCat: "化學", school: "成功大學", dept: "化學系", group: "", quota: 5, subjects: ["普通化學", "普通物理", "微積分"] },
+            { college: "理工學院", deptCat: "化學", school: "中山大學", dept: "化學系", group: "", quota: 4, subjects: ["普通化學", "微積分"] },
+            { college: "理工學院", deptCat: "化學", school: "中興大學", dept: "化學系", group: "", quota: 1, subjects: ["國文", "英文", "普通化學", "微積分"] },
+            { college: "理工學院", deptCat: "化學", school: "高雄師大", dept: "化學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "化學", school: "東海大學", dept: "化學系", group: "化學組", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學", school: "東海大學", dept: "化學系", group: "化學生物組", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學", school: "東吳大學", dept: "化學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學", school: "輔仁大學", dept: "化學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學", school: "中正大學", dept: "化學暨生物化學系", group: "", quota: 1, subjects: ["國文", "英文", "普通化學", "微積分"] },
+            { college: "理工學院", deptCat: "化學", school: "淡江大學", dept: "化學學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "化學", school: "台灣大學", dept: "農業化學系", group: "", quota: 4, subjects: ["國文", "英文", "普通化學", "普通生物", "書審"] },
+            { college: "理工學院", deptCat: "化學", school: "高雄大學", dept: "應用化學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "化學", school: "屏東大學", dept: "應用化學系", group: "", quota: 4, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "化學", school: "中山醫學", dept: "醫學應用化學系", group: "", quota: 2, subjects: ["英文", "普通化學"] },
+            { college: "理工學院", deptCat: "化學", school: "高雄醫學", dept: "醫藥暨應用化學系", group: "醫化組", quota: 3, subjects: ["英文", "普通化學"] },
+            { college: "理工學院", deptCat: "化學", school: "高雄醫學", dept: "醫藥暨應用化學系", group: "應化組", quota: 3, subjects: ["英文", "普通化學"] },
+
+            { college: "理工學院", deptCat: "生命科學", school: "台灣大學", dept: "生命科學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學", "面試"] },
+            { college: "理工學院", deptCat: "生命科學", school: "清華大學", dept: "生命科學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "成功大學", dept: "生命科學系", group: "", quota: 2, subjects: ["英文", "普通生物", "普通化學"] },
+            { college: "理工學院", deptCat: "生命科學", school: "中央大學", dept: "生命科學系", group: "", quota: 2, subjects: ["英文", "普通生物", "普通化學"] },
+            { college: "理工學院", deptCat: "生命科學", school: "中山大學", dept: "生物科學系", group: "", quota: 1, subjects: ["普通生物"] },
+            { college: "理工學院", deptCat: "生命科學", school: "中興大學", dept: "生命科學系", group: "", quota: 3, subjects: ["英文", "普通生物", "普通化學"] },
+            { college: "理工學院", deptCat: "生命科學", school: "台灣師大", dept: "生命科學系", group: "", quota: 4, subjects: ["生物學", "書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "高雄大學", dept: "生命科學系", group: "", quota: 4, subjects: ["普通生物", "普通化學"] },
+            { college: "理工學院", deptCat: "生命科學", school: "輔仁大學", dept: "生命科學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "東海大學", dept: "生命科學系", group: "生物醫學組", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "東海大學", dept: "生命科學系", group: "生態暨生物多樣性組", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "清華大學", dept: "生命科學暨醫學院", group: "學士班", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "高雄醫學", dept: "生命科學院", group: "學士班", quota: 1, subjects: ["英文", "普通生物"] },
+            { college: "理工學院", deptCat: "生命科學", school: "海洋大學", dept: "生命科學暨生物科技學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生命科學", school: "嘉義大學", dept: "水生物科學學系", group: "", quota: 4, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "生化科技", school: "台灣大學", dept: "生化科技學系", group: "", quota: 2, subjects: ["國文", "英文", "普通化學", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "嘉義大學", dept: "生化科技學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "宜蘭大學", dept: "生物技術與動物科學學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "成功大學", dept: "生物科技與產業科學學系", group: "", quota: 3, subjects: ["英文", "普通化學", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "中興大學", dept: "生物科技", group: "學士學位學程", quota: 3, subjects: ["國文", "英文", "普通化學"] },
+            { college: "理工學院", deptCat: "生化科技", school: "陽明交通大學", dept: "生物科技學系", group: "", quota: 5, subjects: ["英文", "普通化學", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "高雄醫學", dept: "生物科技學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "中國醫藥", dept: "生物科技學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "嘉義大學", dept: "生物資源學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "銘傳大學", dept: "生物科技學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "宜蘭大學", dept: "生物資源學院", group: "原住民專班", quota: 7, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "高雄師大", dept: "生物科技系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "嘉義大學", dept: "農業生物科技學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "嘉義大學", dept: "微生物免疫與生物藥學系", group: "", quota: 1, subjects: ["生物學"] },
+            { college: "理工學院", deptCat: "生化科技", school: "中山大學", dept: "海洋生物科技暨資源學系", group: "", quota: 3, subjects: ["英文", "普通化學", "普通生物"] },
+            { college: "理工學院", deptCat: "生化科技", school: "中山大學", dept: "海洋科學系", group: "", quota: 3, subjects: ["英文", "微積分"] },
+            { college: "理工學院", deptCat: "生化科技", school: "彰化師大", dept: "生物學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "生化科技", school: "台南大學", dept: "生態暨環境資源學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "東海大學", dept: "畜產與生物科技學系", group: "", quota: 7, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "生化科技", school: "東吳大學", dept: "微生物學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "生化科技", school: "台南大學", dept: "綠色能源科技學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "生化科技", school: "台南大學", dept: "綠色能源科技學系", group: "進修學士班", quota: 14, subjects: ["書審", "面試"] },
+
+            { college: "理工學院", deptCat: "大氣/地科", school: "台灣大學", dept: "大氣科學學系", group: "", quota: 2, subjects: ["國文", "英文", "微積分", "大氣科學概論"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "中央大學", dept: "大氣科學學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "成功大學", dept: "地球科學系", group: "", quota: 2, subjects: ["英文", "微積分", "普通物理", "普通化學"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "台灣師大", dept: "地球科學系", group: "", quota: 2, subjects: ["地球科學概論"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "中央大學", dept: "地球科學學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "中央大學", dept: "地球科學學院", group: "學士班", quota: 2, subjects: ["國文", "英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "中正大學", dept: "地球與環境科學系", group: "", quota: 1, subjects: ["微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "大氣/地科", school: "台灣大學", dept: "地質科學學系", group: "", quota: 3, subjects: ["國文", "英文", "微積分", "地質科學導論"] },
+
+            { college: "理工學院", deptCat: "農藝/園藝", school: "台灣大學", dept: "農藝學系", group: "", quota: 4, subjects: ["國文", "英文", "普通化學", "普通植物"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "嘉義大學", dept: "農藝學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "台灣大學", dept: "園藝暨景觀學系", group: "", quota: 3, subjects: ["國文", "英文", "普通化學", "普通植物", "園藝學原理"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "中興大學", dept: "園藝學系", group: "", quota: 3, subjects: ["國文", "英文", "園藝植物學", "園藝學原理"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "嘉義大學", dept: "園藝學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "嘉義大學", dept: "園藝學系", group: "進修部", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "農藝/園藝", school: "宜蘭大學", dept: "園藝學系", group: "", quota: 1, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "動物/植物", school: "台灣大學", dept: "森林環境暨資源學系", group: "", quota: 6, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "中興大學", dept: "森林學系", group: "林學組", quota: 1, subjects: ["國文", "英文", "普通化學", "普通植物"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "中興大學", dept: "森林學系", group: "木材科學組", quota: 1, subjects: ["國文", "英文", "普通化學", "普通物理"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "嘉義大學", dept: "森林暨自然資源學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "宜蘭大學", dept: "森林暨自然資源學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "台灣大學", dept: "植物病理與微生物學系", group: "", quota: 2, subjects: ["國文", "英文", "普通化學", "普通生物", "書審"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "中興大學", dept: "植物病理學系", group: "", quota: 1, subjects: ["國文", "英文", "普通化學", "普通植物"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "嘉義大學", dept: "植物醫學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "台灣大學", dept: "昆蟲學系", group: "", quota: 10, subjects: ["國文", "英文", "普通化學", "普通昆蟲"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "中興大學", dept: "昆蟲學系", group: "", quota: 4, subjects: ["國文", "英文", "普通昆蟲", "普通生物"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "台灣大學", dept: "動物科學技術學系", group: "", quota: 3, subjects: ["國文", "英文", "普通化學", "普通生物"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "中興大學", dept: "動物科學系", group: "", quota: 2, subjects: ["國文", "英文", "普通化學", "動物科學概論"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "嘉義大學", dept: "動物科學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "動物/植物", school: "嘉義大學", dept: "動物科學系", group: "進修部", quota: 15, subjects: ["書審"] },
+
+            { college: "理工學院", deptCat: "其他工科", school: "成功大學", dept: "工程科學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "中央大學", dept: "工學院學士班", group: "學士班", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "元智大學", dept: "工程學院英語學士班", group: "英語學士班", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "高雄師大", dept: "工業科技教育學系", group: "科技教育與訓練組", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "實踐大學", dept: "工業產品設計學系", group: "", quota: 1, subjects: ["創意設計", "作品集面試"] },
+            { college: "理工學院", deptCat: "其他工科", school: "成功大學", dept: "工業設計學系", group: "", quota: 2, subjects: ["國文", "英文", "性向測驗"] },
+            { college: "理工學院", deptCat: "其他工科", school: "高雄師大", dept: "工業設計學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "其他工科", school: "長庚大學", dept: "工業設計學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "東海大學", dept: "工業設計學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "大同大學", dept: "工業設計學系", group: "", quota: 2, subjects: ["作品集", "面試"] },
+            { college: "理工學院", deptCat: "其他工科", school: "東海大學", dept: "永續科學與管理學士學位學程", group: "學士學位學程", quota: 2, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "高雄師大", dept: "地理學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "理工學院", deptCat: "其他工科", school: "台灣大學", dept: "地理環境資源學系", group: "", quota: 2, subjects: ["國文", "英文", "微積分", "地理學通論"] },
+            { college: "理工學院", deptCat: "其他工科", school: "成功大學", dept: "能源工程國際學士學位學程", group: "學士學位學程", quota: 2, subjects: ["英文", "微積分", "普通化學"] },
+            { college: "理工學院", deptCat: "其他工科", school: "清華大學", dept: "原子科學院學士班", group: "學士班", quota: 2, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "暨南大學", dept: "科技學院學士班", group: "學士班", quota: 6, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "成功大學", dept: "資源工程學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "成功大學", dept: "測量及空間資訊學系", group: "", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "中興大學", dept: "智慧創意工程學士學位學程", group: "學士學位學程", quota: 1, subjects: ["英文", "微積分", "普通物理"] },
+            { college: "理工學院", deptCat: "其他工科", school: "逢甲大學", dept: "精密系統設計學士學位學程", group: "學士學位學程", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "輔仁大學", dept: "人工智慧與資訊安全學士學位學程", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "逢甲大學", dept: "人工智慧技術與應用學士學位學程", group: "學士學位學程", quota: 5, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "淡江大學", dept: "人工智慧學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "長庚大學", dept: "人工智慧學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "銘傳大學", dept: "人工智慧應用學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "理工學院", deptCat: "其他工科", school: "屏東大學", dept: "電腦科學與人工智慧學系", group: "", quota: 1, subjects: ["書審"] },
+
+            // ================= 商管學院 (173筆) =================
+            { college: "商管學院", deptCat: "企業管理", school: "台灣大學", dept: "工商管理學系", group: "企業管理組", quota: 3, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "企業管理", school: "台灣大學", dept: "工商管理學系", group: "科技管理組", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "企業管理", school: "長庚大學", dept: "工商管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "政治大學", dept: "企業管理學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "企業管理", school: "中山大學", dept: "企業管理學系", group: "", quota: 5, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "中興大學", dept: "企業管理學系", group: "", quota: 1, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "中正大學", dept: "企業管理學系", group: "", quota: 2, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "台北大學", dept: "企業管理學系", group: "", quota: 2, subjects: ["國文", "英文", "企業概論", "管理學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "台北大學", dept: "企業管理學系", group: "進修部", quota: 19, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "嘉義大學", dept: "企業管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "嘉義大學", dept: "企業管理學系", group: "進修部", quota: 16, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "淡江大學", dept: "企業管理學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "淡江大學", dept: "企業管理學系", group: "進修部", quota: 38, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "東吳大學", dept: "企業管理學系", group: "", quota: 1, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "輔仁大學", dept: "企業管理學系", group: "", quota: 11, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "逢甲大學", dept: "企業管理學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "彰化師大", dept: "企業管理學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "屏東大學", dept: "企業管理學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "東海大學", dept: "企業管理學系", group: "", quota: 12, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "世新大學", dept: "企業管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "銘傳大學", dept: "企業管理學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "實踐大學", dept: "企業管理學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "高雄大學", dept: "亞太工商管理學系", group: "工業管理組", quota: 1, subjects: ["經濟與管理"] },
+            { college: "商管學院", deptCat: "企業管理", school: "高雄大學", dept: "亞太工商管理學系", group: "企業管理組", quota: 1, subjects: ["經濟與管理"] },
+            { college: "商管學院", deptCat: "企業管理", school: "屏東大學", dept: "商業大數據學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "輔仁大學", dept: "商業管理", group: "進修學士學位學程", quota: 38, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "逢甲大學", dept: "商學", group: "進修學士學位學程", quota: 26, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "嘉義大學", dept: "科技管理學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "淡江大學", dept: "管理科學學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "中興大學", dept: "生物產業管理", group: "進修學士學位學程", quota: 11, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "中興大學", dept: "創新產業經營", group: "進修學士學位學程", quota: 2, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "企業管理", school: "大同大學", dept: "事業與資訊經營學系", group: "", quota: 4, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "元智大學", dept: "管理學院學士班", group: "", quota: 6, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "企業管理", school: "逢甲大學", dept: "美國加州聖荷西州立大學商學大數據分析", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "逢甲大學", dept: "澳洲墨爾本皇家領域大學商學與創新", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "逢甲大學", dept: "澳洲昆士蘭大學商學", group: "雙學士學位學程", quota: 3, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "企業管理", school: "慈濟大學", dept: "經營管理學系", group: "", quota: 6, subjects: ["國文", "英文"] },
+
+            { college: "商管學院", deptCat: "國企國貿", school: "淡江大學", dept: "國際企業學系", group: "經貿管理組", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "淡江大學", dept: "國際企業學系", group: "國際商學全英語組", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "銘傳大學", dept: "國際企業學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "逢甲大學", dept: "國際企業管理", group: "全英語學士學位學程", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "實踐大學", dept: "國際企業", group: "英語學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "政治大學", dept: "國際經營與貿易學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "東吳大學", dept: "國際經營與貿易學系", group: "", quota: 4, subjects: ["經濟學"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "逢甲大學", dept: "國際經營與貿易學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "東海大學", dept: "國際經營與貿易學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "實踐大學", dept: "國際經營與貿易學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "中山大學", dept: "國際經營管理", group: "全英語學士學位學程", quota: 1, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "中興大學", dept: "國際農企業", group: "學士學位學程", quota: 2, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "國企國貿", school: "銘傳大學", dept: "國際企業與貿易", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "財務金融", school: "政治大學", dept: "財政學系", group: "", quota: 3, subjects: ["英文", "初級會計學", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "財務金融", school: "台北大學", dept: "財政學系", group: "進修部", quota: 16, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "逢甲大學", dept: "財稅學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "政治大學", dept: "財務管理學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "財務金融", school: "中央大學", dept: "財務金融學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "財務金融", school: "中興大學", dept: "財務金融學系", group: "", quota: 1, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "財務金融", school: "中正大學", dept: "財務金融學系", group: "", quota: 2, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "財務金融", school: "嘉義大學", dept: "財務金融學系", group: "", quota: 3, subjects: ["英文", "經濟學"] },
+            { college: "商管學院", deptCat: "財務金融", school: "嘉義大學", dept: "財務金融學系", group: "進修部", quota: 14, subjects: ["經濟學"] },
+            { college: "商管學院", deptCat: "財務金融", school: "淡江大學", dept: "財務金融學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "淡江大學", dept: "財務金融學系", group: "進修部", quota: 39, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "淡江大學", dept: "財務金融學系", group: "全球財務管理全英語學士班", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "逢甲大學", dept: "財務金融學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "暨南大學", dept: "財務金融學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "東海大學", dept: "財務金融學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "世新大學", dept: "財務金融學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "銘傳大學", dept: "財務金融學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "實踐大學", dept: "財務金融學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "銘傳大學", dept: "金融學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "長庚大學", dept: "數位金融科技學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "彰化師大", dept: "財務金融技術學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "東吳大學", dept: "財務工程與精算數學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "逢甲大學", dept: "財務工程與精算", group: "學士學位學程", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "輔仁大學", dept: "金融與國際企業學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "財務金融", school: "台北大學", dept: "金融與合作經營學系", group: "進修部", quota: 14, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "會計", school: "政治大學", dept: "會計學系", group: "", quota: 1, subjects: ["國文", "英文", "初級會計學", "經濟學"] },
+            { college: "商管學院", deptCat: "會計", school: "成功大學", dept: "會計學系", group: "", quota: 2, subjects: ["英文", "會計學", "經濟學"] },
+            { college: "商管學院", deptCat: "會計", school: "彰化師大", dept: "會計學系", group: "", quota: 1, subjects: ["會計學"] },
+            { college: "商管學院", deptCat: "會計", school: "淡江大學", dept: "會計學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "會計", school: "東吳大學", dept: "會計學系", group: "", quota: 2, subjects: ["英文", "會計學"] },
+            { college: "商管學院", deptCat: "會計", school: "輔仁大學", dept: "會計學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "會計", school: "逢甲大學", dept: "會計學系", group: "", quota: 6, subjects: ["英文", "會計學"] },
+            { college: "商管學院", deptCat: "會計", school: "東海大學", dept: "會計學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "會計", school: "銘傳大學", dept: "會計學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "會計", school: "實踐大學", dept: "會計學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "會計", school: "中正大學", dept: "會計與資訊科技學系", group: "", quota: 1, subjects: ["會計學", "經濟學"] },
+
+            { college: "商管學院", deptCat: "運輸管理", school: "淡江大學", dept: "運輸管理學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "運輸管理", school: "陽明交通大學", dept: "運輸與物流管理學系", group: "", quota: 2, subjects: ["英文", "微積分"] },
+            { college: "商管學院", deptCat: "運輸管理", school: "逢甲大學", dept: "運輸與物流學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "經濟", school: "台灣大學", dept: "經濟學系", group: "", quota: 6, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "政治大學", dept: "經濟學系", group: "", quota: 1, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "中央大學", dept: "經濟學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "成功大學", dept: "經濟學系", group: "", quota: 5, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "中正大學", dept: "經濟學系", group: "", quota: 3, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "台北大學", dept: "經濟學系", group: "", quota: 3, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "台北大學", dept: "經濟學系", group: "進修部", quota: 18, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "暨南大學", dept: "經濟學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "淡江大學", dept: "經濟學系", group: "", quota: 14, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "東吳大學", dept: "經濟學系", group: "", quota: 6, subjects: ["經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "逢甲大學", dept: "經濟學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "輔仁大學", dept: "經濟學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "輔仁大學", dept: "經濟學系", group: "進修部", quota: 8, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "東海大學", dept: "經濟學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "中興大學", dept: "應用經濟學系", group: "", quota: 10, subjects: ["英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "高雄大學", dept: "應用經濟學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "經濟", school: "宜蘭大學", dept: "應用經濟與管理學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "嘉義大學", dept: "應用經濟學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "台灣大學", dept: "農業經濟學系", group: "", quota: 2, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "經濟", school: "逢甲大學", dept: "合作經濟暨社會事業經營學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "經濟", school: "淡江大學", dept: "全球政治經濟學系", group: "全英語學士班", quota: 5, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "統計", school: "政治大學", dept: "統計學系", group: "", quota: 1, subjects: ["國文", "英文", "微積分", "統計學"] },
+            { college: "商管學院", deptCat: "統計", school: "成功大學", dept: "統計學系", group: "", quota: 4, subjects: ["國文", "英文", "微積分", "統計學"] },
+            { college: "商管學院", deptCat: "統計", school: "台北大學", dept: "統計學系", group: "", quota: 1, subjects: ["國文", "英文", "微積分", "統計學"] },
+            { college: "商管學院", deptCat: "統計", school: "淡江大學", dept: "統計與資料科學學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "統計", school: "逢甲大學", dept: "統計學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "統計", school: "東海大學", dept: "統計學系", group: "", quota: 12, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "統計", school: "輔仁大學", dept: "統計資訊學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "風管保險", school: "政治大學", dept: "風險管理與保險學系", group: "", quota: 1, subjects: ["國文", "英文", "經濟學", "微積分"] },
+            { college: "商管學院", deptCat: "風管保險", school: "淡江大學", dept: "風險管理與保險學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "風管保險", school: "逢甲大學", dept: "風險管理與保險學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "風管保險", school: "銘傳大學", dept: "資訊應用與金融保險學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "風管保險", school: "實踐大學", dept: "風險管理與保險學系", group: "", quota: 2, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "資訊管理", school: "政治大學", dept: "資訊管理學系", group: "", quota: 1, subjects: ["國文", "英文", "計算機概論", "微積分"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "中央大學", dept: "資訊管理學系", group: "", quota: 3, subjects: ["英文", "計算機概論", "微積分"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "中正大學", dept: "資訊管理學系", group: "", quota: 4, subjects: ["英文", "計算機概論"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "嘉義大學", dept: "資訊管理學系", group: "", quota: 2, subjects: ["英文", "計算機概論"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "暨南大學", dept: "資訊管理學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "彰化師大", dept: "資訊管理學系", group: "資訊管理組", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "淡江大學", dept: "資訊管理學系", group: "", quota: 13, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "東吳大學", dept: "資訊管理學系", group: "", quota: 2, subjects: ["計算機概論"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "輔仁大學", dept: "資訊管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "元智大學", dept: "資訊管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "長庚大學", dept: "資訊管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "屏東大學", dept: "資訊管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "東海大學", dept: "資訊管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "世新大學", dept: "資訊管理學系", group: "資訊管理組", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "銘傳大學", dept: "資訊管理學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "元智大學", dept: "資訊學院", group: "英語學士班", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "陽明交通大學", dept: "資訊管理與財務金融學系", group: "資訊管理組", quota: 1, subjects: ["英文", "計算機概論", "微積分"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "銘傳大學", dept: "資訊科技應用", group: "學士學位學程", quota: 4, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "實踐大學", dept: "資訊科技與管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "慈濟大學", dept: "資訊科技與管理學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "東吳大學", dept: "資料科學學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "輔仁大學", dept: "軟體工程與數位創意", group: "進修學士學位學程", quota: 9, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "資訊管理", school: "台中教大", dept: "數位內容科技學系", group: "", quota: 6, subjects: ["書審", "面試"] },
+
+            { college: "商管學院", deptCat: "不動產管理", school: "政治大學", dept: "地政學系", group: "土地資源規劃組", quota: 1, subjects: ["國文", "英文", "經濟學", "民法概要"] },
+            { college: "商管學院", deptCat: "不動產管理", school: "台北大學", dept: "不動產與城鄉環境學系", group: "進修部", quota: 13, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "不動產管理", school: "逢甲大學", dept: "土地管理學系", group: "", quota: 4, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "休閒管理", school: "台北大學", dept: "休閒運動管理學系", group: "", quota: 3, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "屏東大學", dept: "休閒事業經營學系", group: "", quota: 1, subjects: ["面試"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "宜蘭大學", dept: "休閒產業與健康促進學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "宜蘭大學", dept: "休閒產業與健康促進學系", group: "進修部", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "宜蘭大學", dept: "智慧休閒農業", group: "進修學士學位學程", quota: 4, subjects: ["國作文", "實地訪查/電話訪問", "書審", "面試"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "高雄大學", dept: "運動健康與休閒學系", group: "", quota: 7, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "嘉義大學", dept: "體育與健康休閒學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "嘉義大學", dept: "體育與健康休閒學系", group: "進修部", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "輔仁大學", dept: "運動休閒管理", group: "進修學士學位學程", quota: 11, subjects: ["書審", "面試"] },
+            { college: "商管學院", deptCat: "休閒管理", school: "銘傳大學", dept: "休閒遊憩管理學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "觀光餐旅", school: "淡江大學", dept: "國際觀光管理學系", group: "全英語學士班", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "輔仁大學", dept: "餐旅管理學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "輔仁大學", dept: "餐旅管理學系", group: "進修部", quota: 10, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "銘傳大學", dept: "餐旅管理學系", group: "", quota: 7, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "實踐大學", dept: "餐飲管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "銘傳大學", dept: "觀光事業學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "海洋大學", dept: "海洋觀光管理", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "暨南大學", dept: "觀光休閒與餐旅管理學系", group: "餐旅管理組", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "暨南大學", dept: "觀光休閒與餐旅管理學系", group: "觀光休閒組", quota: 3, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "嘉義大學", dept: "行銷與觀光管理學系", group: "", quota: 3, subjects: ["英文", "管理學"] },
+            { college: "商管學院", deptCat: "觀光餐旅", school: "實踐大學", dept: "智慧服務管理", group: "英語學士學位學程", quota: 3, subjects: ["書審"] },
+
+            { college: "商管學院", deptCat: "行銷", school: "台北大學", dept: "數位行銷學程", group: "進修部", quota: 6, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "行銷", school: "屏東大學", dept: "行銷與流通管理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "行銷", school: "逢甲大學", dept: "行銷學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "商管學院", deptCat: "行銷", school: "銘傳大學", dept: "廣告暨策略行銷學系", group: "", quota: 2, subjects: ["書審"] },
+
+            // ================= 文法學院 (284筆) =================
+            { college: "文法學院", deptCat: "中國文學", school: "台灣大學", dept: "中國文學系", group: "", quota: 3, subjects: ["國文", "英文", "國學導讀", "文學概論"] },
+            { college: "文法學院", deptCat: "中國文學", school: "清華大學", dept: "中國文學系", group: "", quota: 3, subjects: ["國文", "英文", "語文基本能力測驗"] },
+            { college: "文法學院", deptCat: "中國文學", school: "中央大學", dept: "中國文學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "中興大學", dept: "中國文學系", group: "", quota: 2, subjects: ["國文", "英文", "國學導讀", "文學概論"] },
+            { college: "文法學院", deptCat: "中國文學", school: "中興大學", dept: "中國文學系", group: "進修部", quota: 17, subjects: ["國學導讀", "文學概論"] },
+            { college: "文法學院", deptCat: "中國文學", school: "中正大學", dept: "中國文學系", group: "", quota: 2, subjects: ["國文", "英文", "國學導讀", "文學概論"] },
+            { college: "文法學院", deptCat: "中國文學", school: "嘉義大學", dept: "中國文學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "嘉義大學", dept: "中國文學系", group: "進修部", quota: 20, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "輔仁大學", dept: "中國文學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "淡江大學", dept: "中國文學學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "東吳大學", dept: "中國文學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "逢甲大學", dept: "中國文學系", group: "", quota: 5, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "中國文學", school: "東海大學", dept: "中國文學系", group: "", quota: 15, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "屏東大學", dept: "中國語文學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "暨南大學", dept: "中國語文學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "中國文學", school: "元智大學", dept: "中國語文學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "成功大學", dept: "台灣文學系", group: "", quota: 4, subjects: ["英文", "台灣歷史與文化", "文學文本解讀", "本國語言能力測驗"] },
+            { college: "文法學院", deptCat: "中國文學", school: "慈濟大學", dept: "東方語文學系", group: "", quota: 3, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "中國文學", school: "彰化師大", dept: "國文學系", group: "", quota: 3, subjects: ["文學概論", "古籍導讀", "書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "高雄師大", dept: "國文學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "中國文學", school: "台南大學", dept: "國語文學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "中國文學", school: "銘傳大學", dept: "應用中文與華語文教學系", group: "", quota: 15, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "外國語文", school: "台灣大學", dept: "外國語文學系", group: "", quota: 5, subjects: ["國文", "英文", "西洋文學概論", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "政治大學", dept: "英國語文學系", group: "", quota: 1, subjects: ["國文", "英文", "西洋文學概論", "寫作與閱讀"] },
+            { college: "文法學院", deptCat: "外國語文", school: "中興大學", dept: "外國語文學系", group: "", quota: 1, subjects: ["英文", "西洋文學概論", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "中興大學", dept: "外國語文學系", group: "進修部", quota: 24, subjects: ["英文", "西洋文學概論", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "中山大學", dept: "外國語文學系", group: "", quota: 1, subjects: ["英文", "西洋文學概論", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "嘉義大學", dept: "外國語言學系", group: "英語教學組", quota: 4, subjects: ["英文", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "嘉義大學", dept: "外國語言學系", group: "應用外語組", quota: 3, subjects: ["英文", "英文作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "逢甲大學", dept: "外國語文學系", group: "", quota: 8, subjects: ["英文寫作", "英文閱讀"] },
+            { college: "文法學院", deptCat: "外國語文", school: "東海大學", dept: "外國語文學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "宜蘭大學", dept: "外國語文學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "高雄大學", dept: "西洋語文學系", group: "", quota: 1, subjects: ["文學作品讀法", "英文閱讀與作文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "淡江大學", dept: "英文學系", group: "", quota: 15, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "淡江大學", dept: "英文學系", group: "全英語學士班", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "東吳大學", dept: "英文學系", group: "", quota: 2, subjects: ["英文寫作", "中英翻譯"] },
+            { college: "文法學院", deptCat: "外國語文", school: "中央大學", dept: "英美語文學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "慈濟大學", dept: "外國語文學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "輔仁大學", dept: "英國語文學系", group: "", quota: 4, subjects: ["英文作文", "英文文法應用"] },
+            { college: "文法學院", deptCat: "外國語文", school: "輔仁大學", dept: "英國語文學系", group: "進修部", quota: 16, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "台中教大", dept: "英語學系", group: "", quota: 1, subjects: ["書審", "英文面試"] },
+            { college: "文法學院", deptCat: "外國語文", school: "台南大學", dept: "英語學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "台南大學", dept: "英語學系", group: "進修部", quota: 23, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "彰化師大", dept: "英語學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "外國語文", school: "屏東大學", dept: "英語學系", group: "", quota: 2, subjects: ["書審", "英文面試"] },
+            { college: "文法學院", deptCat: "外國語文", school: "屏東大學", dept: "應用英語學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "中山醫學", dept: "應用外國語言學系", group: "", quota: 3, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "外國語文", school: "元智大學", dept: "應用外語學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "大同大學", dept: "應用外語學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "外國語文", school: "銘傳大學", dept: "應用英語學系", group: "", quota: 16, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "外國語文", school: "實踐大學", dept: "應用外語學系", group: "", quota: 6, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "日本語文", school: "台灣大學", dept: "日本語文學系", group: "", quota: 3, subjects: ["國文", "英文", "日文", "中日對譯", "面試"] },
+            { college: "文法學院", deptCat: "日本語文", school: "屏東大學", dept: "應用日語學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "淡江大學", dept: "日本語文學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "淡江大學", dept: "日本語文學系", group: "進修部", quota: 29, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "東吳大學", dept: "日本語文學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "輔仁大學", dept: "日本語文學系", group: "", quota: 5, subjects: ["日作文", "翻譯"] },
+            { college: "文法學院", deptCat: "日本語文", school: "輔仁大學", dept: "日本語文學系", group: "進修部", quota: 31, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "銘傳大學", dept: "應用日語學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "東海大學", dept: "日本語言文化學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "日本語文", school: "世新大學", dept: "日本語文學系", group: "", quota: 2, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "其他外文", school: "輔仁大學", dept: "西班牙語文學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他外文", school: "中央大學", dept: "法國語文學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他外文", school: "輔仁大學", dept: "法國語文學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他外文", school: "政治大學", dept: "斯拉夫語文學系", group: "", quota: 1, subjects: ["國文", "俄羅斯概論"] },
+            { college: "文法學院", deptCat: "其他外文", school: "政治大學", dept: "韓國語文學系", group: "", quota: 1, subjects: ["國文", "英文", "韓語", "韓國社會與文化"] },
+            { college: "文法學院", deptCat: "其他外文", school: "輔仁大學", dept: "義大利語文學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他外文", school: "東吳大學", dept: "德國文化學系", group: "", quota: 1, subjects: ["英文", "A2級德語"] },
+            { college: "文法學院", deptCat: "其他外文", school: "輔仁大學", dept: "德語語文學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他外文", school: "高雄大學", dept: "東亞語文學系", group: "越語組", quota: 1, subjects: ["書審", "面試"] },
+
+            { college: "文法學院", deptCat: "諮商輔導", school: "台中教大", dept: "諮商與應用心理學系", group: "", quota: 1, subjects: ["國文", "英文", "心理學"] },
+            { college: "文法學院", deptCat: "諮商輔導", school: "嘉義大學", dept: "輔導與諮商學系", group: "", quota: 1, subjects: ["心理學", "輔導原理與實務"] },
+            { college: "文法學院", deptCat: "諮商輔導", school: "屏東大學", dept: "教育心理與輔導學系", group: "", quota: 2, subjects: ["心理學"] },
+            { college: "文法學院", deptCat: "諮商輔導", school: "暨南大學", dept: "諮商心理與人力資源發展學系", group: "終身學習與人力資源發展組", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "諮商輔導", school: "世新大學", dept: "社會心理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "諮商輔導", school: "銘傳大學", dept: "諮商臨床與工商心理學系", group: "", quota: 9, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "社會/社工", school: "台灣大學", dept: "社會學系", group: "", quota: 2, subjects: ["國文", "英文", "社會學", "社會統計"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "中山大學", dept: "社會學系", group: "", quota: 4, subjects: ["英文", "社會學"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "東吳大學", dept: "社會學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "輔仁大學", dept: "社會學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "東海大學", dept: "社會學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "台灣大學", dept: "社會工作學系", group: "", quota: 2, subjects: ["國文", "英文", "社會學", "社會工作概論"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "台北大學", dept: "社會工作學系", group: "進修部", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "輔仁大學", dept: "社會工作學系", group: "", quota: 4, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "慈濟大學", dept: "社會工作學系", group: "", quota: 1, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "東吳大學", dept: "社會工作學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "東海大學", dept: "社會工作學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "實踐大學", dept: "社會工作學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "中正大學", dept: "社會福利學系", group: "", quota: 1, subjects: ["社會福利概論", "社會統計"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "中山醫學", dept: "醫學社會暨社會工作學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "高雄醫學", dept: "醫學社會學與社會工作學系", group: "", quota: 3, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "中正大學", dept: "勞工關係學系", group: "", quota: 2, subjects: ["國文", "英文", "勞工關係", "社會科學概論"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "暨南大學", dept: "社會政策與社會工作學系", group: "", quota: 4, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "暨南大學", dept: "原住民文化產業與社會工作", group: "學士學位學程原住民族專班", quota: 9, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "屏東大學", dept: "社會發展學系", group: "", quota: 1, subjects: ["面試"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "輔仁大學", dept: "人文社會服務", group: "進修學士學位學程", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "社會/社工", school: "輔仁大學", dept: "長期照護與健康管理", group: "進修學士學位學程", quota: 5, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "大眾傳播", school: "淡江大學", dept: "大眾傳播學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "輔仁大學", dept: "大眾傳播", group: "進修學士學位學程", quota: 21, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "政治大學", dept: "傳播學院大一大二不分系", group: "", quota: 5, subjects: ["國文", "英文", "傳播概論"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "慈濟大學", dept: "傳播學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "傳播管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "銘傳大學", dept: "新媒體暨傳播管理學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "輔仁大學", dept: "新聞傳播學系", group: "", quota: 4, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "新聞學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "銘傳大學", dept: "影音新聞暨社群傳播學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "銘傳大學", dept: "新聞與大眾傳播", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "口語傳播暨社群媒體學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "淡江大學", dept: "資訊傳播學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "元智大學", dept: "資訊傳播學系", group: "數位媒體設計組", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "元智大學", dept: "資訊傳播學系", group: "智慧科技應用組", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "圖文傳播學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "台灣師大", dept: "圖文傳播學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "廣播電視電影學系", group: "廣播與聲音設計組", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "廣播電視電影學系", group: "電視組", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "廣播電視電影學系", group: "電影組", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "銘傳大學", dept: "廣播電視學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "輔仁大學", dept: "影像傳播學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "台灣大學", dept: "生物產業傳播暨發展學系", group: "", quota: 2, subjects: ["國文", "英文", "傳播概論", "農業發展與社會"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "世新大學", dept: "公共關係暨廣告學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "大眾傳播", school: "屏東大學", dept: "科學傳播學系", group: "", quota: 3, subjects: ["書審", "面試"] },
+
+            { college: "文法學院", deptCat: "教育", school: "政治大學", dept: "教育學系", group: "", quota: 1, subjects: ["國文", "英文", "教育概論", "心理學"] },
+            { college: "文法學院", deptCat: "教育", school: "台灣師大", dept: "教育學系", group: "", quota: 1, subjects: ["教育概論", "書審"] },
+            { college: "文法學院", deptCat: "教育", school: "屏東大學", dept: "教育學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "嘉義大學", dept: "教育學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "台南大學", dept: "教育學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "暨南大學", dept: "教育學院", group: "學士班", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "台灣師大", dept: "幼兒與家庭科學學系", group: "幼兒發展與教育組", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "台灣師大", dept: "幼兒與家庭科學學系", group: "家庭生活與教育組", quota: 3, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "台中教大", dept: "幼兒教育學系", group: "", quota: 1, subjects: ["國文", "英文", "幼兒教育概論"] },
+            { college: "文法學院", deptCat: "教育", school: "嘉義大學", dept: "幼兒教育學系", group: "", quota: 1, subjects: ["國文", "幼兒發展與輔導"] },
+            { college: "文法學院", deptCat: "教育", school: "屏東大學", dept: "幼兒教育學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "中正大學", dept: "成人及繼續教育學系", group: "", quota: 1, subjects: ["成人教育導論", "高齡教育學"] },
+            { college: "文法學院", deptCat: "教育", school: "慈濟大學", dept: "兒童發展與家庭教育學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "文法學院", deptCat: "教育", school: "輔仁大學", dept: "兒童與家庭學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "台中教大", dept: "科學教育與應用學系", group: "", quota: 4, subjects: ["國文", "英文", "自然科學概論"] },
+            { college: "文法學院", deptCat: "教育", school: "實踐大學", dept: "家庭研究與兒童發展學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "彰化師大", dept: "特殊教育學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "高雄師大", dept: "特殊教育學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "教育", school: "淡江大學", dept: "教育科技學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "輔仁大學", dept: "教育領導與科技發展", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "台中教大", dept: "語文教育學系", group: "", quota: 2, subjects: ["國文", "英文", "書審"] },
+            { college: "文法學院", deptCat: "教育", school: "台中教大", dept: "數學教育學系", group: "", quota: 3, subjects: ["微積分"] },
+            { college: "文法學院", deptCat: "教育", school: "淡江大學", dept: "教育與未來設計學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "暨南大學", dept: "國際文教與比較教育學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "教育", school: "暨南大學", dept: "教育政策與行政學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+
+            { college: "文法學院", deptCat: "法律", school: "台灣大學", dept: "法律學系", group: "法學組", quota: 3, subjects: ["國文", "英文", "民法總則", "憲法"] },
+            { college: "文法學院", deptCat: "法律", school: "台灣大學", dept: "法律學系", group: "司法組", quota: 3, subjects: ["國文", "英文", "民法總則", "憲法"] },
+            { college: "文法學院", deptCat: "法律", school: "台灣大學", dept: "法律學系", group: "財經法學組", quota: 3, subjects: ["國文", "英文", "民法總則", "憲法"] },
+            { college: "文法學院", deptCat: "法律", school: "政治大學", dept: "法律學系", group: "", quota: 5, subjects: ["國文", "英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "成功大學", dept: "法律學系", group: "", quota: 1, subjects: ["國文", "英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "中興大學", dept: "法律學系", group: "", quota: 1, subjects: ["國文", "英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "中正大學", dept: "法律學系", group: "法學組", quota: 3, subjects: ["國文", "英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "中正大學", dept: "法律學系", group: "法制組", quota: 2, subjects: ["國文", "英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "台北大學", dept: "法律學系", group: "法學組", quota: 1, subjects: ["憲法", "法學英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "台北大學", dept: "法律學系", group: "司法組", quota: 4, subjects: ["憲法", "法學英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "台北大學", dept: "法律學系", group: "財經法組", quota: 1, subjects: ["憲法", "法學英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "台北大學", dept: "法律學系", group: "進修部", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "高雄大學", dept: "法律學系", group: "", quota: 1, subjects: ["民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "東吳大學", dept: "法律學系", group: "", quota: 12, subjects: ["英文", "民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "輔仁大學", dept: "法律學系", group: "", quota: 5, subjects: ["民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "輔仁大學", dept: "法律學系", group: "進修部", quota: 16, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "東海大學", dept: "法律學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "世新大學", dept: "法律學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "輔仁大學", dept: "財經法律學系", group: "", quota: 3, subjects: ["民法總則", "刑法總則"] },
+            { college: "文法學院", deptCat: "法律", school: "輔仁大學", dept: "學士後法律學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "銘傳大學", dept: "法律學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "銘傳大學", dept: "財金法律學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "法律", school: "實踐大學", dept: "法律學系", group: "", quota: 5, subjects: ["民法總則", "刑法總則"] },
+
+            { college: "文法學院", deptCat: "政治", school: "台灣大學", dept: "政治學系", group: "政治理論組", quota: 2, subjects: ["國文", "英文", "政治學", "中華民國憲法及政府"] },
+            { college: "文法學院", deptCat: "政治", school: "台灣大學", dept: "政治學系", group: "國際關係組", quota: 2, subjects: ["國文", "英文", "政治學", "國際關係"] },
+            { college: "文法學院", deptCat: "政治", school: "台灣大學", dept: "政治學系", group: "公共行政組", quota: 2, subjects: ["國文", "英文", "政治學", "行政學"] },
+            { college: "文法學院", deptCat: "政治", school: "政治大學", dept: "政治學系", group: "", quota: 1, subjects: ["國文", "英文", "政治學"] },
+            { college: "文法學院", deptCat: "政治", school: "成功大學", dept: "政治學系", group: "", quota: 1, subjects: ["英文", "政治學"] },
+            { college: "文法學院", deptCat: "政治", school: "中正大學", dept: "政治學系", group: "", quota: 2, subjects: ["國文", "英文", "政治學", "中華民國憲法與政府"] },
+            { college: "文法學院", deptCat: "政治", school: "東吳大學", dept: "政治學系", group: "", quota: 5, subjects: ["政治學英文"] },
+            { college: "文法學院", deptCat: "政治", school: "東海大學", dept: "政治學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "公共行政", school: "台北大學", dept: "公共行政暨政策學系", group: "", quota: 1, subjects: ["國文", "英文", "政治學", "行政學"] },
+            { college: "文法學院", deptCat: "公共行政", school: "台北大學", dept: "公共行政暨政策學系", group: "進修部", quota: 20, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "公共行政", school: "淡江大學", dept: "公共行政學系", group: "", quota: 9, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "公共行政", school: "銘傳大學", dept: "公共事務與行政管理學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "公共行政", school: "東海大學", dept: "行政管理暨政策學系", group: "", quota: 5, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "哲學", school: "台灣大學", dept: "哲學系", group: "", quota: 2, subjects: ["國文", "英文", "哲學概論", "面試"] },
+            { college: "文法學院", deptCat: "哲學", school: "政治大學", dept: "哲學系", group: "", quota: 1, subjects: ["國文", "英文", "哲學概論", "邏輯"] },
+            { college: "文法學院", deptCat: "哲學", school: "中正大學", dept: "哲學系", group: "", quota: 2, subjects: ["英文", "哲學概論", "邏輯"] },
+            { college: "文法學院", deptCat: "哲學", school: "輔仁大學", dept: "哲學系", group: "", quota: 11, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "哲學", school: "東吳大學", dept: "哲學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "哲學", school: "東海大學", dept: "哲學系", group: "", quota: 13, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "歷史", school: "台灣大學", dept: "歷史學系", group: "", quota: 3, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "歷史", school: "成功大學", dept: "歷史學系", group: "", quota: 2, subjects: ["中國通史", "世界通史", "台灣史"] },
+            { college: "文法學院", deptCat: "歷史", school: "中興大學", dept: "歷史學系", group: "", quota: 2, subjects: ["中國通史", "世界通史"] },
+            { college: "文法學院", deptCat: "歷史", school: "中正大學", dept: "歷史學系", group: "", quota: 4, subjects: ["中國通史", "世界通史"] },
+            { college: "文法學院", deptCat: "歷史", school: "台灣師大", dept: "歷史學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "嘉義大學", dept: "應用歷史學系", group: "", quota: 2, subjects: ["英文", "史學通論"] },
+            { college: "文法學院", deptCat: "歷史", school: "淡江大學", dept: "歷史學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "東吳大學", dept: "歷史學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "輔仁大學", dept: "歷史學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "輔仁大學", dept: "歷史學系", group: "進修部", quota: 11, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "暨南大學", dept: "歷史學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "歷史", school: "東海大學", dept: "歷史學系", group: "", quota: 3, subjects: ["書審"] },
+
+            { college: "文法學院", deptCat: "其他文科", school: "台灣大學", dept: "人類學系", group: "", quota: 2, subjects: ["國文", "英文", "考古學概論", "人類學"] },
+            { college: "文法學院", deptCat: "其他文科", school: "陽明交通大學", dept: "人文社會學系", group: "", quota: 4, subjects: ["英文", "客家社會與文化導論"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "人文與社區創新", group: "學士學位學程", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "元智大學", dept: "人文社會學院", group: "英語學士班", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣大學", dept: "圖書資訊學系", group: "", quota: 2, subjects: ["國文", "英文", "圖書館學導論", "資訊科學導論"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "圖書資訊學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "淡江大學", dept: "資訊與圖書館學系", group: "", quota: 10, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "銘傳大學", dept: "犯罪防治學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣大學", dept: "戲劇學系", group: "", quota: 2, subjects: ["國文", "英文", "戲劇導論", "劇本導讀"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中山大學", dept: "劇場藝術學系", group: "", quota: 3, subjects: ["劇本分析", "創意寫作"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣師大", dept: "表演藝術", group: "學士學位學程", quota: 2, subjects: ["書審", "術科"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "織品服裝學系", group: "織品設計組", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "織品服裝學系", group: "服飾設計組", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "織品服裝學系", group: "織品服飾行銷組", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "服飾採購與行銷", group: "進修學士學位學程", quota: 22, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "實踐大學", dept: "服裝設計學系", group: "", quota: 3, subjects: ["作品集審查"] },
+            { college: "文法學院", deptCat: "其他文科", school: "清華大學", dept: "藝術與設計學系", group: "創作組", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "清華大學", dept: "藝術與設計學系", group: "設計組", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "清華大學", dept: "藝術學院", group: "學士班", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "高雄師大", dept: "藝術產業學士", group: "原住民專班", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "藝術與文化創意", group: "進修學士學位學程", quota: 17, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "元智大學", dept: "藝術與設計學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "視覺藝術學系", group: "", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台南大學", dept: "視覺藝術與設計學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "屏東大學", dept: "視覺藝術學系", group: "美術組", quota: 3, subjects: ["素描", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "高雄大學", dept: "工藝與創意設計學系", group: "", quota: 3, subjects: ["面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台中教大", dept: "文化創意產業設計與營運學系", group: "", quota: 6, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "屏東大學", dept: "文化創意產業學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "屏東大學", dept: "文化發展", group: "學士學位學程原住民專班", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "木質材料與設計學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "木質材料與設計學系", group: "進修部", quota: 15, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣師大", dept: "設計學系", group: "產品設計組", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "銘傳大學", dept: "商品設計學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "銘傳大學", dept: "商業設計學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "數位學習設計與管理學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "世新大學", dept: "數位多媒體設計學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "銘傳大學", dept: "數位媒體設計學系", group: "", quota: 11, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "實踐大學", dept: "媒體傳達設計學系", group: "動畫影像設計組", quota: 1, subjects: ["設計繪畫", "作品集面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "實踐大學", dept: "媒體傳達設計學系", group: "創意媒體設計組", quota: 1, subjects: ["設計繪畫", "作品集面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "大同大學", dept: "數位媒體設計學系", group: "互動媒體設計組", quota: 2, subjects: ["作品集", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "景觀學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "景觀設計學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東海大學", dept: "景觀學系", group: "", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "室內設計", group: "進修學士學位學程", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "逢甲大學", dept: "室內設計", group: "學士學位學程", quota: 8, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "逢甲大學", dept: "室內設計", group: "進修學士班", quota: 12, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台中教大", dept: "美術學系", group: "", quota: 1, subjects: ["作品集審查", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "彰化師大", dept: "美術學系", group: "", quota: 2, subjects: ["作品集審查", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "高雄師大", dept: "美術學系", group: "", quota: 1, subjects: ["素描", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東海大學", dept: "美術學系", group: "", quota: 5, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東海大學", dept: "美術學系", group: "進修部", quota: 15, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "應用美術學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "應用美術學系", group: "進修部", quota: 10, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中山大學", dept: "音樂學系", group: "", quota: 10, subjects: ["面試(含術科)"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台中教大", dept: "音樂學系", group: "", quota: 3, subjects: ["面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "嘉義大學", dept: "音樂學系", group: "", quota: 7, subjects: ["書審", "術科演奏能力"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台南大學", dept: "音樂學系", group: "", quota: 13, subjects: ["演奏(唱)", "現場創作"] },
+            { college: "文法學院", deptCat: "其他文科", school: "高雄師大", dept: "音樂學系", group: "", quota: 2, subjects: ["主修", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "屏東大學", dept: "音樂學系", group: "", quota: 5, subjects: ["主修樂器", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "音樂學系", group: "", quota: 7, subjects: ["書審", "主修"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東吳大學", dept: "音樂學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東海大學", dept: "音樂學系", group: "演奏演唱組", quota: 3, subjects: ["書審", "主修樂器考試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "東海大學", dept: "音樂學系", group: "音樂治療組", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "實踐大學", dept: "音樂學系", group: "", quota: 4, subjects: ["術科(含面試)"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中正大學", dept: "運動競技學系", group: "", quota: 3, subjects: ["書審", "運動訓練法"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣師大", dept: "體育與運動科學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "彰化師大", dept: "運動學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "高雄師大", dept: "運動競技與產業學士", group: "原住民專班", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台中教大", dept: "體育學系", group: "", quota: 3, subjects: ["國文", "英文", "運動社會學"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台南大學", dept: "體育學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "屏東大學", dept: "體育學系", group: "", quota: 2, subjects: ["術科", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "體育學系", group: "體育學組", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "體育學系", group: "運動競技組", quota: 5, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "體育學系", group: "運動健康管理組", quota: 4, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "政治大學", dept: "民族學系", group: "", quota: 2, subjects: ["國文", "英文", "民族學", "民族誌"] },
+            { college: "文法學院", deptCat: "其他文科", school: "淡江大學", dept: "外交與國際關係學系", group: "全英語學士班", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "國際溝通與科技創新", group: "學士學位學程", quota: 2, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "台灣師大", dept: "東亞學系", group: "", quota: 1, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "暨南大學", dept: "東南亞學系", group: "", quota: 7, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中央大學", dept: "客家語文暨社會科學學系", group: "客家語文及傳播組", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中央大學", dept: "客家語文暨社會科學學系", group: "客家社會及政策組", quota: 1, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "宗教學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "文法學院", deptCat: "其他文科", school: "輔仁大學", dept: "天主教研修", group: "學士學位學程", quota: 5, subjects: ["書審", "面試"] },
+            { college: "文法學院", deptCat: "其他文科", school: "中正大學", dept: "紫荊不分系", group: "學士學位學程", quota: 6, subjects: ["國文", "英文", "書審", "微積分"] },
+
+            // ================= 醫學院 (110筆) =================
+            { college: "醫學院", deptCat: "醫檢放射", school: "台灣大學", dept: "醫學檢驗暨生物技術學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學", "微積分"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "台北醫學", dept: "醫學檢驗暨生物技術學系", group: "", quota: 10, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "中山醫學", dept: "醫學檢驗暨生物技術學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "高雄醫學", dept: "醫學檢驗生物技術學系", group: "", quota: 8, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "中國醫藥", dept: "醫學檢驗生物技術學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "慈濟大學", dept: "醫學檢驗生物技術學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "中山醫學", dept: "醫學影像暨放射科學學系", group: "", quota: 3, subjects: ["國文", "普通生物"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "長庚大學", dept: "醫學影像暨放射科學學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "高雄醫學", dept: "醫學影像暨放射科學學系", group: "", quota: 7, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "慈濟大學", dept: "醫學影像暨放射科學學系", group: "", quota: 15, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "陽明交通大學", dept: "醫學生物技術暨檢驗學系", group: "", quota: 3, subjects: ["英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "長庚大學", dept: "醫學生物技術暨檢驗學系", group: "", quota: 3, subjects: ["普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "中國醫藥", dept: "生物醫學影像暨放射科學學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "醫檢放射", school: "陽明交通大學", dept: "生物醫學影像暨放射科學學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+
+            { college: "醫學院", deptCat: "食品營養", school: "台北醫學", dept: "保健營養學系", group: "", quota: 10, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "食品營養", school: "台北醫學", dept: "食品安全學系", group: "", quota: 6, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "食品營養", school: "嘉義大學", dept: "食品科學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "嘉義大學", dept: "食品科學系", group: "進修學士班", quota: 22, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "海洋大學", dept: "食品科學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "宜蘭大學", dept: "食品科學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "東海大學", dept: "食品科學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "輔仁大學", dept: "食品科學系", group: "", quota: 5, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "台灣師大", dept: "營養科學", group: "學士學位學程", quota: 4, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "食品營養", school: "輔仁大學", dept: "營養科學系", group: "", quota: 7, subjects: ["書審", "面試"] },
+            { college: "醫學院", deptCat: "食品營養", school: "中國醫藥", dept: "營養學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "食品營養", school: "中山醫學", dept: "營養學系", group: "", quota: 1, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "食品營養", school: "實踐大學", dept: "食品營養與保健生技學系", group: "", quota: 3, subjects: ["書審"] },
+
+            { college: "醫學院", deptCat: "中醫/牙醫", school: "中國醫藥", dept: "中醫學系", group: "乙組", quota: 5, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+
+            { college: "醫學院", deptCat: "獸醫", school: "台灣大學", dept: "獸醫學系", group: "", quota: 1, subjects: ["國文", "英文", "普通化學", "解剖生理學", "面試"] },
+            { college: "醫學院", deptCat: "獸醫", school: "中興大學", dept: "獸醫學系", group: "", quota: 5, subjects: ["英文", "動物結構與功能"] },
+            { college: "醫學院", deptCat: "獸醫", school: "嘉義大學", dept: "獸醫學系", group: "", quota: 5, subjects: ["英文", "普通化學", "普通生物"] },
+
+            { college: "醫學院", deptCat: "藥學", school: "陽明交通大學", dept: "藥學系", group: "", quota: 2, subjects: ["英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "台北醫學", dept: "藥學系", group: "藥學組", quota: 18, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "台北醫學", dept: "藥學系", group: "臨床藥學組", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "高雄醫學", dept: "藥學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "中國醫藥", dept: "藥學系", group: "", quota: 12, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "慈濟大學", dept: "藥學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "藥學", school: "中國醫藥", dept: "中藥藥學暨中藥資源學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+
+            { college: "醫學院", deptCat: "公共衛生", school: "台灣大學", dept: "公共衛生學系", group: "", quota: 3, subjects: ["國文", "英文", "書審", "面試", "微積分"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "台北醫學", dept: "公共衛生學系", group: "", quota: 10, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "高雄醫學", dept: "公共衛生學系", group: "", quota: 6, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "中國醫藥", dept: "公共衛生學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "中山醫學", dept: "公共衛生學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "輔仁大學", dept: "公共衛生學系", group: "", quota: 6, subjects: ["書審", "面試"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "慈濟大學", dept: "公共衛生學系", group: "", quota: 3, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "公共衛生", school: "台灣師大", dept: "健康促進與衛生教育學系", group: "", quota: 1, subjects: ["書審"] },
+
+            { college: "醫學院", deptCat: "生物醫學", school: "陽明交通大學", dept: "生物醫學工程學系", group: "", quota: 2, subjects: ["普通物理", "普通化學", "微積分"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "成功大學", dept: "生物醫學工程學系", group: "", quota: 2, subjects: ["英文", "普通物理", "微積分"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "中山大學", dept: "生物醫學科技學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "台北醫學", dept: "生物醫學工程學系", group: "", quota: 10, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "銘傳大學", dept: "生物醫學工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "中國醫藥", dept: "生物醫學工程學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "長庚大學", dept: "生物醫學工程學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "慈濟大學", dept: "生物醫學暨工程學系", group: "", quota: 4, subjects: ["英文", "普通化學"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "長庚大學", dept: "生物醫學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "中正大學", dept: "生物醫學科學系", group: "", quota: 2, subjects: ["普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "中山醫學", dept: "生物醫學科學學系", group: "", quota: 2, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "高雄醫學", dept: "生物醫學暨環境生物學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "清華大學", dept: "生醫工程與環境科學系", group: "", quota: 2, subjects: ["普通物理", "普通化學", "微積分"] },
+            { college: "醫學院", deptCat: "生物醫學", school: "中央大學", dept: "生醫科學與工程學系", group: "", quota: 2, subjects: ["普通物理", "普通化學", "微積分"] },
+
+            { college: "醫學院", deptCat: "物理治療", school: "台北醫學", dept: "呼吸治療學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "高雄醫學", dept: "呼吸治療學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "長庚大學", dept: "呼吸治療學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "輔仁大學", dept: "呼吸治療學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "物理治療", school: "中國醫藥", dept: "物理治療學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "物理治療", school: "中山醫學", dept: "物理治療學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "高雄醫學", dept: "物理治療學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "長庚大學", dept: "物理治療學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "中山醫學", dept: "語言治療與聽力學系", group: "語言治療組", quota: 1, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "中山醫學", dept: "語言治療與聽力學系", group: "聽力組", quota: 2, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "高雄醫學", dept: "職能治療學系", group: "", quota: 1, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "長庚大學", dept: "職能治療學系", group: "", quota: 5, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "物理治療", school: "輔仁大學", dept: "職能治療學系", group: "", quota: 3, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "物理治療", school: "中山醫學", dept: "職能治療學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物"] },
+
+            { college: "醫學院", deptCat: "醫務管理", school: "台北醫學", dept: "醫務管理學系", group: "", quota: 8, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "醫務管理", school: "中國醫藥", dept: "醫務管理學系", group: "", quota: 3, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "醫務管理", school: "高雄醫學", dept: "醫務管理暨醫療資訊學系", group: "", quota: 6, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "醫務管理", school: "慈濟大學", dept: "醫務暨健康管理學系", group: "", quota: 10, subjects: ["國文", "英文"] },
+
+            { college: "醫學院", deptCat: "護理", school: "台灣大學", dept: "護理學系", group: "", quota: 5, subjects: ["國文", "英文", "護理學導論", "生物化學概論", "面試"] },
+            { college: "醫學院", deptCat: "護理", school: "暨南大學", dept: "護理學系", group: "", quota: 2, subjects: ["書審", "面試"] },
+            { college: "醫學院", deptCat: "護理", school: "暨南大學", dept: "護理學系", group: "原住民族專班", quota: 12, subjects: ["書審", "面試"] },
+            { college: "醫學院", deptCat: "護理", school: "台北醫學", dept: "護理學系", group: "", quota: 5, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "護理", school: "長庚大學", dept: "護理學系", group: "", quota: 1, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "護理", school: "輔仁大學", dept: "護理學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "護理", school: "中國醫藥", dept: "護理學系", group: "", quota: 4, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "護理", school: "中山醫學", dept: "護理學系", group: "", quota: 2, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "護理", school: "元智大學", dept: "護理學系", group: "", quota: 1, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "護理", school: "慈濟大學", dept: "護理學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+
+            { college: "醫學院", deptCat: "其他醫學", school: "清華大學", dept: "醫學科學系", group: "", quota: 4, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "彰化師大", dept: "高齡健康促進與照護管理", group: "原住民專班", quota: 8, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "暨南大學", dept: "高齡健康與長期照顧管理學士學位學程", group: "原住民族專班", quota: 10, subjects: ["書審", "面試"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "台北醫學", dept: "高齡健康暨長期照護學系", group: "", quota: 18, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "東海大學", dept: "高齡健康與運動科學", group: "學士學位學程", quota: 6, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "台北醫學", dept: "牙體技術學系", group: "", quota: 6, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "台北醫學", dept: "口腔衛生學系", group: "", quota: 18, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "高雄醫學", dept: "口腔衛生學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中國醫藥", dept: "運動醫學系", group: "", quota: 3, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "高雄醫學", dept: "運動醫學系", group: "", quota: 2, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中山醫學", dept: "視光學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中山醫學", dept: "醫療產業科技管理學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中山醫學", dept: "健康產業科技管理學系", group: "", quota: 3, subjects: ["英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "銘傳大學", dept: "醫療資訊管理學系", group: "", quota: 6, subjects: ["書審"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中山醫學", dept: "職業安全衛生學系", group: "", quota: 4, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中國醫藥", dept: "職業安全衛生學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中國醫藥", dept: "藥用化妝品學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "高雄醫學", dept: "香妝品學系", group: "", quota: 2, subjects: ["國文", "英文", "普通生物", "普通化學"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中國醫藥", dept: "醫療資訊學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "中山醫學", dept: "醫學資訊學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "慈濟大學", dept: "醫學資訊學系", group: "", quota: 2, subjects: ["國文", "英文"] },
+            { college: "醫學院", deptCat: "其他醫學", school: "輔仁大學", dept: "醫學資訊與創新應用", group: "學士學位學程", quota: 1, subjects: ["書審"] }
+        ];
+
+        const popularSubjList = ["國文", "英文", "微積分", "普通物理", "普通化學", "普通生物", "計算機概論", "經濟學", "會計學", "民法總則", "刑法總則", "政治學", "護理學導論", "書審", "面試"];
+
+        let currentCollege = "醫學院";
+        let currentDeptCat = "護理";
+        let selectedFilterSubjs = [];
+        let currentFilterLogic = "OR";
+
+        function setFilterLogic(logic) {
+            currentFilterLogic = logic;
+            const orBtn = document.getElementById('logicOrBtn');
+            const andBtn = document.getElementById('logicAndBtn');
+
+            if (logic === 'OR') {
+                orBtn.className = 'logic-btn active-or';
+                andBtn.className = 'logic-btn';
+            } else {
+                orBtn.className = 'logic-btn';
+                andBtn.className = 'logic-btn active-and';
+            }
+            renderTableData();
+        }
+
+        function renderSidebar() {
+            const container = document.getElementById('sidebarMenu');
+            container.innerHTML = '';
+
+            menuStructure.forEach(item => {
+                const block = document.createElement('div');
+                block.className = 'college-block';
+
+                const header = document.createElement('div');
+                header.className = 'college-header';
+                header.innerHTML = `<span>${item.college} ＞</span>`;
+                block.appendChild(header);
+
+                const grid = document.createElement('div');
+                grid.className = 'dept-list-grid';
+
+                item.depts.forEach(deptName => {
+                    const btn = document.createElement('a');
+                    btn.className = `dept-btn ${(item.college === currentCollege && deptName === currentDeptCat) ? 'active' : ''}`;
+                    btn.innerText = deptName;
+                    btn.onclick = () => {
+                        currentCollege = item.college;
+                        currentDeptCat = deptName;
+                        
+                        // 點選側邊欄時，若有篩選條件，清空關鍵字與考科，恢復單科系對應檢視
+                        document.getElementById('searchInput').value = '';
+                        selectedFilterSubjs = [];
+                        renderSubjectFilters();
+                        
+                        updateActiveSidebarBtn();
+                        renderTableData();
+                    };
+                    grid.appendChild(btn);
+                });
+
+                block.appendChild(grid);
+                container.appendChild(block);
+            });
+        }
+
+        function updateActiveSidebarBtn() {
+            document.querySelectorAll('.dept-btn').forEach(btn => {
+                const isActive = (btn.innerText === currentDeptCat);
+                btn.classList.toggle('active', isActive);
+            });
+        }
+
+        function renderSubjectFilters() {
+            const container = document.getElementById('subjectFilterBox');
+            container.innerHTML = '';
+
+            popularSubjList.forEach(subj => {
+                const chip = document.createElement('div');
+                chip.className = `subj-chip ${selectedFilterSubjs.includes(subj) ? 'active' : ''}`;
+                chip.innerText = subj;
+                chip.onclick = () => {
+                    if (selectedFilterSubjs.includes(subj)) {
+                        selectedFilterSubjs = selectedFilterSubjs.filter(s => s !== subj);
+                    } else {
+                        selectedFilterSubjs.push(subj);
+                    }
+                    renderSubjectFilters();
+                    renderTableData();
+                };
+                container.appendChild(chip);
+            });
+        }
+
+        function renderTableData() {
+            const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+            const tbody = document.getElementById('dataTableBody');
+            tbody.innerHTML = '';
+
+            // 判斷當前是否正在進行搜尋或條件篩選
+            const isFiltering = (keyword.length > 0 || selectedFilterSubjs.length > 0);
+
+            // 更新 Banner 標頭動態顯示
+            const bannerTitle = document.getElementById('displayTitle');
+            if (isFiltering) {
+                let filterConditions = [];
+                if (keyword) filterConditions.push(`關鍵字「${keyword}」`);
+                if (selectedFilterSubjs.length > 0) filterConditions.push(`考科 [${selectedFilterSubjs.join(' + ')}] (${currentFilterLogic})`);
+                
+                bannerTitle.innerHTML = `<span>🔍</span> 跨院系全校系搜尋：<span style="color:var(--primary-blue); font-size:1.1rem; margin-left:0.2rem;">${filterConditions.join('，')}</span>`;
+            } else {
+                const noSuffixDepts = ['醫檢放射', '食品營養', '中醫/牙醫', '獸醫', '藥學', '公共衛生', '生物醫學', '物理治療', '醫務管理', '護理', '其他醫學', '其他工科', '其他文科'];
+                const deptTitleText = currentDeptCat + (noSuffixDepts.includes(currentDeptCat) || currentDeptCat.endsWith('系') ? '' : '系');
+                bannerTitle.innerHTML = `<span>📄</span> ${currentCollege} ＞ ${deptTitleText}`;
+            }
+
+            const filtered = rawExamData.filter(item => {
+                // 如果沒有輸入關鍵字也沒有勾選考科，僅顯示當前選擇的目錄科系
+                if (!isFiltering) {
+                    if (item.deptCat !== currentDeptCat) return false;
+                }
+
+                // 1. 關鍵字過濾（可搜尋學校、科系、組別或學院名稱）
+                if (keyword) {
+                    const matchSchool = item.school.toLowerCase().includes(keyword);
+                    const matchDept = item.dept.toLowerCase().includes(keyword);
+                    const matchGroup = item.group ? item.group.toLowerCase().includes(keyword) : false;
+                    const matchCollege = item.college.toLowerCase().includes(keyword);
+                    if (!matchSchool && !matchDept && !matchGroup && !matchCollege) return false;
+                }
+
+                // 2. 考科 AND / OR 邏輯跨院系過濾
+                if (selectedFilterSubjs.length > 0) {
+                    if (currentFilterLogic === 'AND') {
+                        // AND 邏輯：該校系考科必須「同時包含所有」勾選的標籤
+                        const hasAllSubjs = selectedFilterSubjs.every(s => item.subjects.includes(s));
+                        if (!hasAllSubjs) return false;
+                    } else {
+                        // OR 邏輯：該校系考科只要「包含任意一科」勾選的標籤即可
+                        const hasAnySubj = selectedFilterSubjs.some(s => item.subjects.includes(s));
+                        if (!hasAnySubj) return false;
+                    }
+                }
+
+                return true;
             });
 
-            renderMajorDetail();
-        }
+            document.getElementById('resultCount').innerText = filtered.length;
 
-        function switchMajor(id, event) {
-            currentMajorId = id;
-            document.querySelectorAll('.major-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) {
-                event.target.classList.add('active');
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="empty-state">⚠️ 全資料庫中查無符合條件之轉學考招生數據。您可以切換「AND / OR 篩選模式」、「重設篩選」或調整關鍵字。</td></tr>`;
+                return;
             }
-            renderMajorDetail();
+
+            filtered.forEach(item => {
+                const tr = document.createElement('tr');
+
+                const subjBadges = item.subjects.map(s => {
+                    const isDoc = s.includes('書審');
+                    return `<span class="subj-badge ${isDoc ? 'doc-review' : ''}">${s}</span>`;
+                }).join('');
+
+                // 若在【跨系搜尋模式】下，呈現科系時自動加上學院類別標籤，提升比對可讀性
+                const deptDisplay = isFiltering 
+                    ? `<span class="college-tag">${item.college}-${item.deptCat}</span><br><strong>${item.dept}</strong>`
+                    : item.dept;
+
+                tr.innerHTML = `
+                    <td style="font-weight: 700; color: var(--text-dark);">${item.school}</td>
+                    <td style="color: var(--primary-blue); text-align: center;">${deptDisplay}</td>
+                    <td>${item.group || ''}</td>
+                    <td class="quota-num">${item.quota}</td>
+                    <td>${subjBadges}</td>
+                `;
+                tbody.appendChild(tr);
+            });
         }
 
-        function renderMajorDetail() {
-            const item = majorsData.find(m => m.id === currentMajorId);
-            const box = document.getElementById('majorDisplay');
+        document.getElementById('resetBtn').onclick = () => {
+            document.getElementById('searchInput').value = '';
+            selectedFilterSubjs = [];
+            currentFilterLogic = 'OR';
+            setFilterLogic('OR');
+            renderSubjectFilters();
+            updateActiveSidebarBtn();
+            renderTableData();
+        };
 
-            box.innerHTML = `
-                <h3 style="font-size: 1.35rem; color: var(--primary-dark); margin-bottom: 0.5rem;">🎓 ${item.name}</h3>
-                <p style="margin-bottom: 0.8rem; font-size: 0.95rem;"><strong>📚 主要考科組合：</strong> <span style="color: var(--primary); font-weight: 800;">${item.subjects}</span></p>
-                <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid var(--primary); margin-bottom: 0.8rem;">
-                    <h4 style="font-size: 0.98rem; color: var(--primary-dark); margin-bottom: 0.3rem;">💡 考題特點與備考重點：</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">${item.highlights}</p>
-                </div>
-                <p style="font-size: 0.88rem; color: var(--text-dark);"><strong>💼 未來發展出路：</strong> ${item.career}</p>
-            `;
-        }
+        document.getElementById('searchInput').addEventListener('input', renderTableData);
 
-        // 2. Intersection Observer 捲動監聽 JS
-        function initScrollAnimation() {
-            const observerOptions = {
-                root: null,
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initMajors();
-            initScrollAnimation();
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar();
+            renderSubjectFilters();
+            updateActiveSidebarBtn();
+            renderTableData();
         });
     </script>
 </body>
